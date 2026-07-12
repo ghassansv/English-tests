@@ -1,0 +1,853 @@
+{
+  "page": {
+    "page_number": 1,
+    "a4": {
+      "width_pt": 595,
+      "height_pt": 842
+    },
+    "transform": {
+      "scale": 0.7747395833333334,
+      "scale_x": 0.7747395833333334,
+      "scale_y": 0.7747395833333334,
+      "translate_x_pt": 0,
+      "translate_y_pt": 9.61328125
+    },
+    "source": {
+      "original_width": 768,
+      "original_height": 1062,
+      "dpi": null,
+      "mime_type": null
+    },
+    "regions": [
+      {
+        "id": "r1",
+        "type": "text_region",
+        "bbox": {
+          "x_norm": 0,
+          "y_norm": 0,
+          "w_norm": 1,
+          "h_norm": 1,
+          "x_pt": 0,
+          "y_pt": 0,
+          "w_pt": 595,
+          "h_pt": 842
+        },
+        "blocks": [
+          {
+            "id": "b1",
+            "type": "paragraph",
+            "role": "body-text",
+            "bbox": {
+              "x_norm": 0,
+              "y_norm": 0.011417198634204276,
+              "w_norm": 1,
+              "h_norm": 0.06072780581947743,
+              "x_pt": 0,
+              "y_pt": 9.61328125,
+              "w_pt": 595,
+              "h_pt": 51.1328125
+            },
+            "reading_order": 0,
+            "text": "4 Whats said of a visitor's impressions of Utah?",
+            "text_runs": [
+              {
+                "text": "4 Whats said of a visitor's impressions of Utah?",
+                "bbox": {
+                  "x_norm": 0,
+                  "y_norm": 0.011417198634204276,
+                  "w_norm": 1,
+                  "h_norm": 0.06072780581947743,
+                  "x_pt": 0,
+                  "y_pt": 9.61328125,
+                  "w_pt": 595,
+                  "h_pt": 51.1328125
+                },
+                "font_name": null,
+                "font_size_pt": null,
+                "font_weight": null,
+                "font_style": null,
+                "color": null,
+                "underline": false,
+                "hyphenation_hint": false,
+                "provenance": {
+                  "source": "ocr",
+                  "engine": "tesseract.js",
+                  "confidence": 84
+                }
+              }
+            ],
+            "confidence": 84,
+            "provenance": {
+              "source": "ocr",
+              "engine": "tesseract.js",
+              "confidence": 84
+            }
+          },
+          {
+            "id": "b2",
+            "type": "paragraph",
+            "role": "body-text",
+            "bbox": {
+              "x_norm": 0,
+              "y_norm": 0.07214500445368172,
+              "w_norm": 1,
+              "h_norm": 0,
+              "x_pt": 0,
+              "y_pt": 60.74609375,
+              "w_pt": 595,
+              "h_pt": 0
+            },
+            "reading_order": 1,
+            "text": "AHe was interested in livestock] Ed",
+            "text_runs": [
+              {
+                "text": "AHe was interested in livestock] Ed",
+                "bbox": {
+                  "x_norm": 0,
+                  "y_norm": 0.07214500445368172,
+                  "w_norm": 1,
+                  "h_norm": 0,
+                  "x_pt": 0,
+                  "y_pt": 60.74609375,
+                  "w_pt": 595,
+                  "h_pt": 0
+                },
+                "font_name": null,
+                "font_size_pt": null,
+                "font_weight": null,
+                "font_style": null,
+                "color": null,
+                "underline": false,
+                "hyphenation_hint": false,
+                "provenance": {
+                  "source": "ocr",
+                  "engine": "tesseract.js",
+                  "confidence": 84
+                }
+              }
+            ],
+            "confidence": 84,
+            "provenance": {
+              "source": "ocr",
+              "engine": "tesseract.js",
+              "confidence": 84
+            }
+          },
+          {
+            "id": "b3",
+            "type": "paragraph",
+            "role": "body-text",
+            "bbox": {
+              "x_norm": 0,
+              "y_norm": 0.13287281027315914,
+              "w_norm": 1,
+              "h_norm": -0.06072780581947743,
+              "x_pt": 0,
+              "y_pt": 111.87890625,
+              "w_pt": 595,
+              "h_pt": -51.1328125
+            },
+            "reading_order": 2,
+            "text": "B He made comparisons to his homelarid]",
+            "text_runs": [
+              {
+                "text": "B He made comparisons to his homelarid]",
+                "bbox": {
+                  "x_norm": 0,
+                  "y_norm": 0.13287281027315914,
+                  "w_norm": 1,
+                  "h_norm": -0.06072780581947743,
+                  "x_pt": 0,
+                  "y_pt": 111.87890625,
+                  "w_pt": 595,
+                  "h_pt": -51.1328125
+                },
+                "font_name": null,
+                "font_size_pt": null,
+                "font_weight": null,
+                "font_style": null,
+                "color": null,
+                "underline": false,
+                "hyphenation_hint": false,
+                "provenance": {
+                  "source": "ocr",
+                  "engine": "tesseract.js",
+                  "confidence": 84
+                }
+              }
+            ],
+            "confidence": 84,
+            "provenance": {
+              "source": "ocr",
+              "engine": "tesseract.js",
+              "confidence": 84
+            }
+          },
+          {
+            "id": "b4",
+            "type": "paragraph",
+            "role": "body-text",
+            "bbox": {
+              "x_norm": 0,
+              "y_norm": 0.19360061609263657,
+              "w_norm": 1,
+              "h_norm": -0.12145561163895487,
+              "x_pt": 0,
+              "y_pt": 163.01171875,
+              "w_pt": 595,
+              "h_pt": -102.265625
+            },
+            "reading_order": 3,
+            "text": "C He was eniranced by the natural beauty:",
+            "text_runs": [
+              {
+                "text": "C He was eniranced by the natural beauty:",
+                "bbox": {
+                  "x_norm": 0,
+                  "y_norm": 0.19360061609263657,
+                  "w_norm": 1,
+                  "h_norm": -0.12145561163895487,
+                  "x_pt": 0,
+                  "y_pt": 163.01171875,
+                  "w_pt": 595,
+                  "h_pt": -102.265625
+                },
+                "font_name": null,
+                "font_size_pt": null,
+                "font_weight": null,
+                "font_style": null,
+                "color": null,
+                "underline": false,
+                "hyphenation_hint": false,
+                "provenance": {
+                  "source": "ocr",
+                  "engine": "tesseract.js",
+                  "confidence": 84
+                }
+              }
+            ],
+            "confidence": 84,
+            "provenance": {
+              "source": "ocr",
+              "engine": "tesseract.js",
+              "confidence": 84
+            }
+          },
+          {
+            "id": "b5",
+            "type": "paragraph",
+            "role": "body-text",
+            "bbox": {
+              "x_norm": 0,
+              "y_norm": 0.254328421912114,
+              "w_norm": 1,
+              "h_norm": -0.1821834174584323,
+              "x_pt": 0,
+              "y_pt": 214.14453125,
+              "w_pt": 595,
+              "h_pt": -153.3984375
+            },
+            "reading_order": 4,
+            "text": "D He discovered many things about democracy]",
+            "text_runs": [
+              {
+                "text": "D He discovered many things about democracy]",
+                "bbox": {
+                  "x_norm": 0,
+                  "y_norm": 0.254328421912114,
+                  "w_norm": 1,
+                  "h_norm": -0.1821834174584323,
+                  "x_pt": 0,
+                  "y_pt": 214.14453125,
+                  "w_pt": 595,
+                  "h_pt": -153.3984375
+                },
+                "font_name": null,
+                "font_size_pt": null,
+                "font_weight": null,
+                "font_style": null,
+                "color": null,
+                "underline": false,
+                "hyphenation_hint": false,
+                "provenance": {
+                  "source": "ocr",
+                  "engine": "tesseract.js",
+                  "confidence": 84
+                }
+              }
+            ],
+            "confidence": 84,
+            "provenance": {
+              "source": "ocr",
+              "engine": "tesseract.js",
+              "confidence": 84
+            }
+          },
+          {
+            "id": "b6",
+            "type": "paragraph",
+            "role": "body-text",
+            "bbox": {
+              "x_norm": 0,
+              "y_norm": 0.3150562277315915,
+              "w_norm": 1,
+              "h_norm": -0.24291122327790973,
+              "x_pt": 0,
+              "y_pt": 265.27734375,
+              "w_pt": 595,
+              "h_pt": -204.53125
+            },
+            "reading_order": 5,
+            "text": "Compared with the lexical definition of the teimad’, certain scholars’",
+            "text_runs": [
+              {
+                "text": "Compared with the lexical definition of the teimad’, certain scholars’",
+                "bbox": {
+                  "x_norm": 0,
+                  "y_norm": 0.3150562277315915,
+                  "w_norm": 1,
+                  "h_norm": -0.24291122327790973,
+                  "x_pt": 0,
+                  "y_pt": 265.27734375,
+                  "w_pt": 595,
+                  "h_pt": -204.53125
+                },
+                "font_name": null,
+                "font_size_pt": null,
+                "font_weight": null,
+                "font_style": null,
+                "color": null,
+                "underline": false,
+                "hyphenation_hint": false,
+                "provenance": {
+                  "source": "ocr",
+                  "engine": "tesseract.js",
+                  "confidence": 84
+                }
+              }
+            ],
+            "confidence": 84,
+            "provenance": {
+              "source": "ocr",
+              "engine": "tesseract.js",
+              "confidence": 84
+            }
+          },
+          {
+            "id": "b7",
+            "type": "paragraph",
+            "role": "body-text",
+            "bbox": {
+              "x_norm": 0,
+              "y_norm": 0.3757840335510689,
+              "w_norm": 1,
+              "h_norm": -0.30363902909738716,
+              "x_pt": 0,
+              "y_pt": 316.41015625,
+              "w_pt": 595,
+              "h_pt": -255.6640625
+            },
+            "reading_order": 6,
+            "text": "definition is",
+            "text_runs": [
+              {
+                "text": "definition is",
+                "bbox": {
+                  "x_norm": 0,
+                  "y_norm": 0.3757840335510689,
+                  "w_norm": 1,
+                  "h_norm": -0.30363902909738716,
+                  "x_pt": 0,
+                  "y_pt": 316.41015625,
+                  "w_pt": 595,
+                  "h_pt": -255.6640625
+                },
+                "font_name": null,
+                "font_size_pt": null,
+                "font_weight": null,
+                "font_style": null,
+                "color": null,
+                "underline": false,
+                "hyphenation_hint": false,
+                "provenance": {
+                  "source": "ocr",
+                  "engine": "tesseract.js",
+                  "confidence": 84
+                }
+              }
+            ],
+            "confidence": 84,
+            "provenance": {
+              "source": "ocr",
+              "engine": "tesseract.js",
+              "confidence": 84
+            }
+          },
+          {
+            "id": "b8",
+            "type": "paragraph",
+            "role": "body-text",
+            "bbox": {
+              "x_norm": 0,
+              "y_norm": 0.43651183937054633,
+              "w_norm": 1,
+              "h_norm": -0.3643668349168646,
+              "x_pt": 0,
+              "y_pt": 367.54296875,
+              "w_pt": 595,
+              "h_pt": -306.796875
+            },
+            "reading_order": 7,
+            "text": "Amore applicable [GI",
+            "text_runs": [
+              {
+                "text": "Amore applicable [GI",
+                "bbox": {
+                  "x_norm": 0,
+                  "y_norm": 0.43651183937054633,
+                  "w_norm": 1,
+                  "h_norm": -0.3643668349168646,
+                  "x_pt": 0,
+                  "y_pt": 367.54296875,
+                  "w_pt": 595,
+                  "h_pt": -306.796875
+                },
+                "font_name": null,
+                "font_size_pt": null,
+                "font_weight": null,
+                "font_style": null,
+                "color": null,
+                "underline": false,
+                "hyphenation_hint": false,
+                "provenance": {
+                  "source": "ocr",
+                  "engine": "tesseract.js",
+                  "confidence": 84
+                }
+              }
+            ],
+            "confidence": 84,
+            "provenance": {
+              "source": "ocr",
+              "engine": "tesseract.js",
+              "confidence": 84
+            }
+          },
+          {
+            "id": "b9",
+            "type": "paragraph",
+            "role": "body-text",
+            "bbox": {
+              "x_norm": 0,
+              "y_norm": 0.4972396451900237,
+              "w_norm": 1,
+              "h_norm": -0.42509464073634207,
+              "x_pt": 0,
+              "y_pt": 418.67578125,
+              "w_pt": 595,
+              "h_pt": -357.9296875
+            },
+            "reading_order": 8,
+            "text": "Bmore inclusive | [I",
+            "text_runs": [
+              {
+                "text": "Bmore inclusive | [I",
+                "bbox": {
+                  "x_norm": 0,
+                  "y_norm": 0.4972396451900237,
+                  "w_norm": 1,
+                  "h_norm": -0.42509464073634207,
+                  "x_pt": 0,
+                  "y_pt": 418.67578125,
+                  "w_pt": 595,
+                  "h_pt": -357.9296875
+                },
+                "font_name": null,
+                "font_size_pt": null,
+                "font_weight": null,
+                "font_style": null,
+                "color": null,
+                "underline": false,
+                "hyphenation_hint": false,
+                "provenance": {
+                  "source": "ocr",
+                  "engine": "tesseract.js",
+                  "confidence": 84
+                }
+              }
+            ],
+            "confidence": 84,
+            "provenance": {
+              "source": "ocr",
+              "engine": "tesseract.js",
+              "confidence": 84
+            }
+          },
+          {
+            "id": "b10",
+            "type": "paragraph",
+            "role": "body-text",
+            "bbox": {
+              "x_norm": 0,
+              "y_norm": 0.5579674510095012,
+              "w_norm": 1,
+              "h_norm": -0.48582244655581946,
+              "x_pt": 0,
+              "y_pt": 469.80859375,
+              "w_pt": 595,
+              "h_pt": -409.0625
+            },
+            "reading_order": 9,
+            "text": "C more popular [| I",
+            "text_runs": [
+              {
+                "text": "C more popular [| I",
+                "bbox": {
+                  "x_norm": 0,
+                  "y_norm": 0.5579674510095012,
+                  "w_norm": 1,
+                  "h_norm": -0.48582244655581946,
+                  "x_pt": 0,
+                  "y_pt": 469.80859375,
+                  "w_pt": 595,
+                  "h_pt": -409.0625
+                },
+                "font_name": null,
+                "font_size_pt": null,
+                "font_weight": null,
+                "font_style": null,
+                "color": null,
+                "underline": false,
+                "hyphenation_hint": false,
+                "provenance": {
+                  "source": "ocr",
+                  "engine": "tesseract.js",
+                  "confidence": 84
+                }
+              }
+            ],
+            "confidence": 84,
+            "provenance": {
+              "source": "ocr",
+              "engine": "tesseract.js",
+              "confidence": 84
+            }
+          },
+          {
+            "id": "b11",
+            "type": "paragraph",
+            "role": "body-text",
+            "bbox": {
+              "x_norm": 0,
+              "y_norm": 0.6186952568289786,
+              "w_norm": 1,
+              "h_norm": -0.5465502523752969,
+              "x_pt": 0,
+              "y_pt": 520.94140625,
+              "w_pt": 595,
+              "h_pt": -460.1953125
+            },
+            "reading_order": 10,
+            "text": "D more narrow []",
+            "text_runs": [
+              {
+                "text": "D more narrow []",
+                "bbox": {
+                  "x_norm": 0,
+                  "y_norm": 0.6186952568289786,
+                  "w_norm": 1,
+                  "h_norm": -0.5465502523752969,
+                  "x_pt": 0,
+                  "y_pt": 520.94140625,
+                  "w_pt": 595,
+                  "h_pt": -460.1953125
+                },
+                "font_name": null,
+                "font_size_pt": null,
+                "font_weight": null,
+                "font_style": null,
+                "color": null,
+                "underline": false,
+                "hyphenation_hint": false,
+                "provenance": {
+                  "source": "ocr",
+                  "engine": "tesseract.js",
+                  "confidence": 84
+                }
+              }
+            ],
+            "confidence": 84,
+            "provenance": {
+              "source": "ocr",
+              "engine": "tesseract.js",
+              "confidence": 84
+            }
+          },
+          {
+            "id": "b12",
+            "type": "paragraph",
+            "role": "body-text",
+            "bbox": {
+              "x_norm": 0,
+              "y_norm": 0.6794230626484561,
+              "w_norm": 1,
+              "h_norm": -0.6072780581947743,
+              "x_pt": 0,
+              "y_pt": 572.07421875,
+              "w_pt": 595,
+              "h_pt": -511.328125
+            },
+            "reading_order": 11,
+            "text": "Why could it be seen as ironic that it was frontiersmen who dp the continent",
+            "text_runs": [
+              {
+                "text": "Why could it be seen as ironic that it was frontiersmen who dp the continent",
+                "bbox": {
+                  "x_norm": 0,
+                  "y_norm": 0.6794230626484561,
+                  "w_norm": 1,
+                  "h_norm": -0.6072780581947743,
+                  "x_pt": 0,
+                  "y_pt": 572.07421875,
+                  "w_pt": 595,
+                  "h_pt": -511.328125
+                },
+                "font_name": null,
+                "font_size_pt": null,
+                "font_weight": null,
+                "font_style": null,
+                "color": null,
+                "underline": false,
+                "hyphenation_hint": false,
+                "provenance": {
+                  "source": "ocr",
+                  "engine": "tesseract.js",
+                  "confidence": 84
+                }
+              }
+            ],
+            "confidence": 84,
+            "provenance": {
+              "source": "ocr",
+              "engine": "tesseract.js",
+              "confidence": 84
+            }
+          },
+          {
+            "id": "b13",
+            "type": "paragraph",
+            "role": "body-text",
+            "bbox": {
+              "x_norm": 0,
+              "y_norm": 0.7401508684679335,
+              "w_norm": 1,
+              "h_norm": -0.6680058640142518,
+              "x_pt": 0,
+              "y_pt": 623.20703125,
+              "w_pt": 595,
+              "h_pt": -562.4609375
+            },
+            "reading_order": 12,
+            "text": "for settlement?",
+            "text_runs": [
+              {
+                "text": "for settlement?",
+                "bbox": {
+                  "x_norm": 0,
+                  "y_norm": 0.7401508684679335,
+                  "w_norm": 1,
+                  "h_norm": -0.6680058640142518,
+                  "x_pt": 0,
+                  "y_pt": 623.20703125,
+                  "w_pt": 595,
+                  "h_pt": -562.4609375
+                },
+                "font_name": null,
+                "font_size_pt": null,
+                "font_weight": null,
+                "font_style": null,
+                "color": null,
+                "underline": false,
+                "hyphenation_hint": false,
+                "provenance": {
+                  "source": "ocr",
+                  "engine": "tesseract.js",
+                  "confidence": 84
+                }
+              }
+            ],
+            "confidence": 84,
+            "provenance": {
+              "source": "ocr",
+              "engine": "tesseract.js",
+              "confidence": 84
+            }
+          },
+          {
+            "id": "b14",
+            "type": "paragraph",
+            "role": "body-text",
+            "bbox": {
+              "x_norm": 0,
+              "y_norm": 0.8008786742874109,
+              "w_norm": 1,
+              "h_norm": -0.7287336698337292,
+              "x_pt": 0,
+              "y_pt": 674.33984375,
+              "w_pt": 595,
+              "h_pt": -613.59375
+            },
+            "reading_order": 13,
+            "text": "4 What attitude do many of the vagabonds listed by the author have in",
+            "text_runs": [
+              {
+                "text": "4 What attitude do many of the vagabonds listed by the author have in",
+                "bbox": {
+                  "x_norm": 0,
+                  "y_norm": 0.8008786742874109,
+                  "w_norm": 1,
+                  "h_norm": -0.7287336698337292,
+                  "x_pt": 0,
+                  "y_pt": 674.33984375,
+                  "w_pt": 595,
+                  "h_pt": -613.59375
+                },
+                "font_name": null,
+                "font_size_pt": null,
+                "font_weight": null,
+                "font_style": null,
+                "color": null,
+                "underline": false,
+                "hyphenation_hint": false,
+                "provenance": {
+                  "source": "ocr",
+                  "engine": "tesseract.js",
+                  "confidence": 84
+                }
+              }
+            ],
+            "confidence": 84,
+            "provenance": {
+              "source": "ocr",
+              "engine": "tesseract.js",
+              "confidence": 84
+            }
+          },
+          {
+            "id": "b15",
+            "type": "paragraph",
+            "role": "body-text",
+            "bbox": {
+              "x_norm": 0,
+              "y_norm": 0.8616064801068883,
+              "w_norm": 1,
+              "h_norm": -0.7894614756532067,
+              "x_pt": 0,
+              "y_pt": 725.47265625,
+              "w_pt": 595,
+              "h_pt": -664.7265625
+            },
+            "reading_order": 14,
+            "text": "common?",
+            "text_runs": [
+              {
+                "text": "common?",
+                "bbox": {
+                  "x_norm": 0,
+                  "y_norm": 0.8616064801068883,
+                  "w_norm": 1,
+                  "h_norm": -0.7894614756532067,
+                  "x_pt": 0,
+                  "y_pt": 725.47265625,
+                  "w_pt": 595,
+                  "h_pt": -664.7265625
+                },
+                "font_name": null,
+                "font_size_pt": null,
+                "font_weight": null,
+                "font_style": null,
+                "color": null,
+                "underline": false,
+                "hyphenation_hint": false,
+                "provenance": {
+                  "source": "ocr",
+                  "engine": "tesseract.js",
+                  "confidence": 84
+                }
+              }
+            ],
+            "confidence": 84,
+            "provenance": {
+              "source": "ocr",
+              "engine": "tesseract.js",
+              "confidence": 84
+            }
+          },
+          {
+            "id": "b16",
+            "type": "paragraph",
+            "role": "body-text",
+            "bbox": {
+              "x_norm": 0,
+              "y_norm": 0.9223342859263658,
+              "w_norm": 1,
+              "h_norm": -0.8501892814726841,
+              "x_pt": 0,
+              "y_pt": 776.60546875,
+              "w_pt": 595,
+              "h_pt": -715.859375
+            },
+            "reading_order": 15,
+            "text": "il oe me",
+            "text_runs": [
+              {
+                "text": "il oe me",
+                "bbox": {
+                  "x_norm": 0,
+                  "y_norm": 0.9223342859263658,
+                  "w_norm": 1,
+                  "h_norm": -0.8501892814726841,
+                  "x_pt": 0,
+                  "y_pt": 776.60546875,
+                  "w_pt": 595,
+                  "h_pt": -715.859375
+                },
+                "font_name": null,
+                "font_size_pt": null,
+                "font_weight": null,
+                "font_style": null,
+                "color": null,
+                "underline": false,
+                "hyphenation_hint": false,
+                "provenance": {
+                  "source": "ocr",
+                  "engine": "tesseract.js",
+                  "confidence": 84
+                }
+              }
+            ],
+            "confidence": 84,
+            "provenance": {
+              "source": "ocr",
+              "engine": "tesseract.js",
+              "confidence": 84
+            }
+          }
+        ],
+        "reading_order": 0,
+        "provenance": {
+          "source": "ocr",
+          "engine": "tesseract.js",
+          "confidence": 0.9
+        },
+        "confidence": 0.9
+      }
+    ],
+    "metadata": {
+      "created_at": "2026-07-10T11:21:23.015Z",
+      "provenance": "node-extractor",
+      "page_confidence": 0.9
+    },
+    "diagnostics": []
+  }
+}

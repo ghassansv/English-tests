@@ -1,0 +1,193 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "PageLayoutSchema",
+  "title": "PageLayoutSchema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["pageSize", "elements"],
+  "properties": {
+    "pageSize": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height", "unit"],
+      "properties": {
+        "width": { "type": "number", "exclusiveMinimum": 0 },
+        "height": { "type": "number", "exclusiveMinimum": 0 },
+        "unit": { "const": "px" },
+        "format": { "type": "string" },
+        "orientation": { "type": "string" }
+      }
+    },
+    "elements": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/element" }
+    }
+  },
+  "$defs": {
+    "style": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fontFamily": { "type": "string" },
+        "fontSize": { "type": "number" },
+        "fontWeight": {
+          "oneOf": [{ "type": "string" }, { "type": "number" }]
+        },
+        "fontStyle": { "type": "string" },
+        "color": { "type": "string" },
+        "textAlign": { "type": "string" },
+        "direction": { "type": "string" },
+        "lineHeight": { "type": "number" },
+        "backgroundColor": { "type": "string" },
+        "fillColor": { "type": "string" },
+        "strokeColor": { "type": "string" },
+        "strokeWidth": { "type": "number" },
+        "opacity": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "textStyle": {
+      "allOf": [
+        { "$ref": "#/$defs/style" },
+        {
+          "type": "object",
+          "required": ["fontSize", "fontWeight", "fontStyle", "color", "lineHeight"]
+        }
+      ]
+    },
+    "baseElement": {
+      "type": "object",
+      "required": ["id", "type", "x", "y", "width", "height"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": {
+          "enum": ["text", "box", "rectangle", "line", "image", "circle", "group"]
+        },
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "width": { "type": "number" },
+        "height": { "type": "number" },
+        "rotation": { "type": "number" },
+        "zIndex": { "type": "number" },
+        "role": { "type": "string" },
+        "column": { "type": "string" },
+        "fitMode": { "enum": ["shrink", "clip", "overflow"] },
+        "minFontSize": { "type": "number" },
+        "style": { "$ref": "#/$defs/style" }
+      }
+    },
+    "element": {
+      "oneOf": [
+        { "$ref": "#/$defs/textElement" },
+        { "$ref": "#/$defs/boxElement" },
+        { "$ref": "#/$defs/rectangleElement" },
+        { "$ref": "#/$defs/lineElement" },
+        { "$ref": "#/$defs/imageElement" },
+        { "$ref": "#/$defs/circleElement" },
+        { "$ref": "#/$defs/groupElement" }
+      ]
+    },
+    "textElement": {
+      "allOf": [
+        { "$ref": "#/$defs/baseElement" },
+        {
+          "type": "object",
+          "required": ["text", "style"],
+          "properties": {
+            "type": { "const": "text" },
+            "text": { "type": "string" },
+            "lines": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "style": { "$ref": "#/$defs/textStyle" }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "boxElement": {
+      "allOf": [
+        { "$ref": "#/$defs/baseElement" },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "box" },
+            "rx": { "type": "number" },
+            "ry": { "type": "number" }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "rectangleElement": {
+      "allOf": [
+        { "$ref": "#/$defs/baseElement" },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "rectangle" },
+            "rx": { "type": "number" },
+            "ry": { "type": "number" }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "lineElement": {
+      "allOf": [
+        { "$ref": "#/$defs/baseElement" },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "line" }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "imageElement": {
+      "allOf": [
+        { "$ref": "#/$defs/baseElement" },
+        {
+          "type": "object",
+          "required": ["src"],
+          "properties": {
+            "type": { "const": "image" },
+            "src": { "type": "string" },
+            "preserveAspectRatio": { "type": "string" }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "circleElement": {
+      "allOf": [
+        { "$ref": "#/$defs/baseElement" },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "circle" }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "groupElement": {
+      "allOf": [
+        { "$ref": "#/$defs/baseElement" },
+        {
+          "type": "object",
+          "required": ["elements"],
+          "properties": {
+            "type": { "const": "group" },
+            "elements": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/element" }
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    }
+  }
+}

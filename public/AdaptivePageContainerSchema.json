@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "AdaptivePageContainerSchema",
+  "title": "Adaptive lossless layered page container",
+  "type": "object",
+  "required": ["schemaVersion", "containerType", "pageId", "coordinateSpaces", "source", "geometry", "structure", "content", "visual", "diagnostics", "pageLayout"],
+  "properties": {
+    "schemaVersion": { "enum": ["adaptive-page-container/v2", "source-container/v3"] },
+    "containerType": { "const": "lossless-layered-page" },
+    "pageId": { "type": "string" },
+    "testId": { "type": "string" },
+    "pageNumber": { "type": "integer", "minimum": 0 },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "coordinateSpaces": { "type": "object" },
+    "source": { "type": "object" },
+    "geometry": { "type": "object" },
+    "structure": {
+      "type": "object",
+      "required": ["regions", "readingOrder", "unclassifiedElementIds"],
+      "properties": {
+        "regions": { "type": "array" },
+        "readingOrder": { "type": "array", "items": { "type": "string" } },
+        "unclassifiedElementIds": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "content": {
+      "type": "object",
+      "required": ["sourceLanguage", "targetLanguages", "units"],
+      "properties": {
+        "sourceLanguage": { "type": "string" },
+        "targetLanguages": { "type": "array", "items": { "type": "string" } },
+        "units": { "type": "array" }
+      }
+    },
+    "visual": { "type": "object" },
+    "diagnostics": { "type": "object" },
+    "sourceEvidence": { "type": "object" },
+    "documentUnderstanding": { "type": "object" },
+    "semanticPage": { "type": "object" },
+    "semanticValidation": { "type": "object" },
+    "migration": { "type": "object" },
+    "legacyGeometry": { "type": "object" },
+    "pageLayout": { "type": "object" }
+  }
+}

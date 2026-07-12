@@ -1,0 +1,39 @@
+{
+  "name": "english-word-vault",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "repair:national-test-pages": "node scripts/maintenance/repair-national-test-pages.mjs",
+    "test:semantic-models": "node tests/national-test-semantic-models.test.mjs",
+    "test:semantic-validation": "node tests/national-test-semantic-validation.test.mjs",
+    "test:semantic": "npm run test:study-document-v1 && npm run test:semantic-models && npm run test:semantic-validation",
+    "test:study-document-v1": "node tests/study-document-v1.test.mjs",
+    "test:study-document-ui": "node tests/study-document-ui.test.mjs",
+    "test:study-document-renderer": "node tests/study-document-renderer.test.mjs",
+    "test:study-document-page-binding": "node tests/study-document-page-binding.test.mjs",
+    "test:study-document-official-answers": "node tests/study-document-official-answers.test.mjs",
+    "test:study-document-translation": "node tests/study-document-translation.test.mjs",
+    "test:document-understanding": "node tests/document-understanding.test.mjs",
+    "test:a4-layout": "node tests/a4-layout-resolver.test.mjs",
+    "test:phase8": "node tests/phase8-reconstruction.test.mjs",
+    "test:phase8-5": "node tests/phase8-5-e2e.test.mjs",
+    "test:all-js": "npm run test:study-document-v1 && npm run test:study-document-page-binding && npm run test:study-document-renderer && npm run test:study-document-official-answers && npm run test:study-document-translation && npm run test:study-document-ui && npm run test:semantic-models && npm run test:semantic-validation && npm run test:document-understanding && npm run test:a4-layout && npm run test:phase8 && npm run test:phase8-5",
+    "test:document-intelligence-service": "py -3.10 -m unittest tests.document_intelligence_service_test",
+    "setup:document-intelligence": "powershell -ExecutionPolicy Bypass -File scripts/setup_document_intelligence.ps1",
+    "smoke:document-intelligence": "powershell -ExecutionPolicy Bypass -File scripts/setup_document_intelligence.ps1 -SkipInstall",
+    "diagnostics:phase8": "node scripts/run-reconstruction-diagnostics.mjs",
+    "diagnostics:phase8-5": "node scripts/run-e2e-source-reconstruction.mjs",
+    "diagnostics:pdf-e2e": "node scripts/run-e2e-pdf-reconstruction.mjs"
+  },
+  "dependencies": {
+    "@tesseract.js-data/eng": "^1.0.0",
+    "express": "^4.19.2",
+    "image-size": "^2.0.2",
+    "jsonrepair": "^3.14.0",
+    "multer": "^2.1.1",
+    "pdfjs-dist": "^5.4.624",
+    "tesseract.js": "^7.0.0"
+  }
+}

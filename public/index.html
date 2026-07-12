@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>English Word Vault</title>
+    <link rel="stylesheet" href="/styles.css?v=study-document-graphic-crop-v1" />
+  </head>
+  <body>
+    <div class="app-shell vault-section">
+      <header class="topbar">
+        <div class="topbar-brand">
+          <h1>English Word Vault</h1>
+          <div class="topbar-stats" id="word-count" aria-label="Library counts">0 words</div>
+        </div>
+        <div class="topbar-center">
+          <nav class="section-nav" aria-label="App sections">
+            <button class="section-nav-button active" id="vault-section-button" type="button">
+              <i data-lucide="book-open"></i>
+              <span>Words</span>
+            </button>
+            <button class="section-nav-button" id="verbs-section-button" type="button">
+              <i data-lucide="list-checks"></i>
+              <span>Verbs</span>
+            </button>
+            <button class="section-nav-button" id="tests-section-button" type="button">
+              <i data-lucide="file-text"></i>
+              <span>Tests</span>
+            </button>
+          </nav>
+          <label class="topbar-search" for="header-search">
+            <i data-lucide="search"></i>
+            <input id="header-search" type="search" autocomplete="off" placeholder="Search words or Arabic" />
+          </label>
+        </div>
+        <div class="topbar-actions">
+          <a class="audio-source-chip" href="https://www.merriam-webster.com/" target="_blank" rel="noopener" title="Audio source: Merriam-Webster">
+            <i data-lucide="volume-2"></i>
+            <span>Audio</span>
+            <strong>Merriam-Webster</strong>
+          </a>
+          <div class="topbar-utility-actions" aria-label="Secondary actions">
+            <button class="ghost-button utility-button" id="refresh-button" type="button">
+              <i data-lucide="refresh-cw"></i>
+              <span>Refresh</span>
+            </button>
+            <a class="ghost-button utility-button" href="/api/export" download="english-words.json">
+              <i data-lucide="download"></i>
+              <span>Export</span>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <aside class="source-panel" id="source-panel" aria-label="Sources">
+          <button class="source-toggle-button" id="source-toggle-button" type="button" aria-expanded="true" title="Hide sources">
+            <i data-lucide="chevron-left"></i>
+          </button>
+
+          <div class="source-panel-content">
+            <div class="panel-heading">
+              <h2>Sources</h2>
+            </div>
+
+            <form class="inline-form" id="source-form">
+              <input id="source-name" type="text" autocomplete="off" placeholder="New source" />
+              <button class="icon-button accent" type="submit" aria-label="Add source" title="Add source">
+                <i data-lucide="plus"></i>
+              </button>
+            </form>
+
+            <div class="source-tree" id="source-tree"></div>
+          </div>
+        </aside>
+
+        <section class="editor-panel">
+          <div class="editor-panel-toolbar">
+            <button class="ghost-button" id="editor-back-button" type="button">
+              <i data-lucide="arrow-left"></i>
+              <span>Back to library</span>
+            </button>
+          </div>
+
+          <div class="tabs" role="tablist" aria-label="Word entry mode">
+            <button class="tab" id="single-tab" type="button" data-tab="single">Single word</button>
+            <button class="tab hidden" id="json-tab" type="button" data-tab="json" aria-hidden="true" tabindex="-1">JSON import</button>
+            <button class="tab" id="study-tab" type="button" data-tab="study">Study text</button>
+            <button class="tab" id="video-tab" type="button" data-tab="video">Video</button>
+            <button class="tab" id="test-tab" type="button" data-tab="test">Tests</button>
+          </div>
+
+          <form id="verb-form" class="verb-form hidden" novalidate>
+            <div class="panel-heading">
+              <h2>Verbs</h2>
+            </div>
+            <label>
+              <span>Verb forms JSON</span>
+              <textarea id="verb-json-input" rows="16" spellcheck="false" placeholder='[
+  {
+    "verb": "go",
+    "past": "went",
+    "pastParticiple": "gone"
+  },
+  {
+    "verb": "smelt",
+    "past": "smelted",
+    "pastParticiple": "smelted"
+  }
+]'></textarea>
+            </label>
+            <div class="form-actions">
+              <button class="primary-button" type="submit">
+                <i data-lucide="save"></i>
+                <span>Import verbs</span>
+              </button>
+              <button class="ghost-button" id="clear-verb-json-button" type="button">
+                <i data-lucide="x"></i>
+                <span>Clear</span>
+              </button>
+            </div>
+          </form>
+
+          <form id="word-form" class="word-form hidden">
+            <input type="hidden" id="editing-id" />
+
+            <div class="field-grid word-location-selectors hidden" aria-hidden="true">
+              <label>
+                <span>Source</span>
+                <select id="word-source"></select>
+              </label>
+              <label>
+                <span>Unit</span>
+                <select id="word-branch"></select>
+              </label>
+              <label>
+                <span>Topic</span>
+                <select id="word-unit"></select>
+              </label>
+            </div>
+
+            <div class="path-badge locked" id="word-path-badge" role="status">
+              <i data-lucide="map-pin"></i>
+              <span id="word-path-badge-text">Choose a source, unit, or topic from Sources</span>
+            </div>
+
+            <fieldset class="word-entry-fields" id="word-entry-fields" disabled>
+            <div class="lookup-control">
+              <label>
+                <span>Word</span>
+                <input id="word-input" type="text" required autocomplete="off" />
+              </label>
+              <button class="ghost-button" id="lookup-word-button" type="button">
+                <i data-lucide="search"></i>
+                <span>Look up</span>
+              </button>
+              <label class="checkbox-line lookup-option">
+                <input id="lookup-thesaurus-input" type="checkbox" />
+                <span>Use thesaurus</span>
+              </label>
+            </div>
+            <div class="lookup-results hidden" id="lookup-results"></div>
+
+            <label>
+              <span>Part of speech</span>
+              <input id="part-of-speech-input" type="text" autocomplete="off" placeholder="noun, verb" />
+            </label>
+
+            <label>
+              <span>Definition</span>
+              <textarea id="definition-input" rows="3"></textarea>
+            </label>
+
+            <label>
+              <span>Arabic translation</span>
+              <textarea id="arabic-translation-input" rows="2" dir="auto" placeholder="اكتب الترجمة أو المعنى بالعربية"></textarea>
+            </label>
+
+            <div class="field-grid">
+              <label>
+                <span>Collocations</span>
+                <textarea id="collocations-input" rows="4" placeholder="one per line"></textarea>
+              </label>
+              <label>
+                <span>Examples</span>
+                <textarea id="examples-input" rows="4" placeholder="one per line"></textarea>
+              </label>
+              <label>
+                <span>Synonyms</span>
+                <textarea id="synonyms-input" rows="4" placeholder="one per line, or JSON with comparisons"></textarea>
+              </label>
+            </div>
+
+            <div class="image-control">
+              <div class="image-field">
+                <span>Image</span>
+                <button class="image-drop-box single-image-drop-box" id="single-image-drop-box" type="button">
+                  <span id="single-image-status">Paste, drop, or click image</span>
+                </button>
+                <input class="hidden" id="image-input" type="file" accept="image/*" />
+              </div>
+              <label class="checkbox-line">
+                <input id="remove-image-input" type="checkbox" />
+                <span>Remove current image</span>
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button class="primary-button" type="submit">
+                <i data-lucide="save"></i>
+                <span id="save-label">Save word</span>
+              </button>
+              <button class="ghost-button" id="reset-form-button" type="button">
+                <i data-lucide="x"></i>
+                <span>Clear</span>
+              </button>
+            </div>
+            </fieldset>
+          </form>
+
+          <form id="json-form" class="json-form hidden" novalidate aria-hidden="true">
+            <div class="field-grid">
+              <label>
+                <span>Source</span>
+                <select id="json-source" required></select>
+              </label>
+              <label>
+                <span>Unit</span>
+                <select id="json-branch"></select>
+              </label>
+              <label>
+                <span>Topic</span>
+                <select id="json-unit"></select>
+              </label>
+            </div>
+            <label>
+              <span>Words JSON</span>
+              <textarea id="json-input" rows="13" spellcheck="false" placeholder='[
+  {
+    "word": "",
+    "definition": "",
+    "partOfSpeech": "",
+    "collocations": [],
+    "examples": [],
+    "synonyms": [
+      {
+        "word": "",
+        "comparison": ""
+      }
+    ]
+  }
+]'></textarea>
+            </label>
+            <div class="json-image-section">
+              <div class="json-image-heading">
+                <span>Images per word</span>
+                <button class="ghost-button" id="json-build-images-button" type="button">
+                  <i data-lucide="image-plus"></i>
+                  <span>Build boxes</span>
+                </button>
+              </div>
+              <input class="hidden" id="json-image-file-input" type="file" accept="image/*" />
+              <div class="json-image-mapper" id="json-image-mapper"></div>
+            </div>
+            <div class="form-actions">
+              <button class="primary-button" type="submit">
+                <i data-lucide="save"></i>
+                <span>Save JSON word/s</span>
+              </button>
+            </div>
+          </form>
+
+          <form id="study-form" class="study-form hidden">
+            <input type="hidden" id="editing-text-id" />
+
+            <div class="field-grid">
+              <label>
+                <span>Source</span>
+                <select id="study-source" required></select>
+              </label>
+              <label>
+                <span>Unit</span>
+                <select id="study-branch"></select>
+              </label>
+              <label>
+                <span>Topic</span>
+                <select id="study-unit"></select>
+              </label>
+            </div>
+
+            <div class="field-grid two-plus-one">
+              <label>
+                <span>Title</span>
+                <input id="study-title" type="text" required autocomplete="off" />
+              </label>
+              <label>
+                <span>Type</span>
+                <select id="study-type">
+                  <option value="note">Note</option>
+                  <option value="summary">Summary</option>
+                  <option value="assignment">Assignment</option>
+                  <option value="reflection">Reflection</option>
+                  <option value="vocabulary">Vocabulary</option>
+                  <option value="draft">Draft</option>
+                  <option value="essay">Essay</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="vocabulary-practice hidden" id="vocabulary-practice">
+              <div class="vocabulary-practice-controls">
+                <label>
+                  <span>From date</span>
+                  <input id="vocabulary-practice-from" type="date" />
+                </label>
+                <label>
+                  <span>To date</span>
+                  <input id="vocabulary-practice-to" type="date" />
+                </label>
+                <label>
+                  <span>Words</span>
+                  <input id="vocabulary-practice-count" type="number" min="1" max="50" step="1" value="10" inputmode="numeric" />
+                </label>
+                <button class="primary-button" id="vocabulary-practice-random-button" type="button">
+                  <i data-lucide="shuffle"></i>
+                  <span>Random</span>
+                </button>
+                <button class="ghost-button" id="vocabulary-practice-start-button" type="button" disabled>
+                  <i data-lucide="pen-line"></i>
+                  <span>Start sentences</span>
+                </button>
+              </div>
+              <div class="vocabulary-practice-summary">
+                <span id="vocabulary-practice-status">No words selected</span>
+                <div class="vocabulary-practice-words" id="vocabulary-practice-words"></div>
+              </div>
+            </div>
+
+            <div class="essay-builder hidden" id="essay-builder">
+              <div class="essay-total-word-count" aria-live="polite">
+                <span>Total essay words</span>
+                <strong id="essay-total-word-count">0 words</strong>
+              </div>
+              <div class="essay-progress" id="essay-progress" aria-label="Essay writing progress"></div>
+              <div class="essay-structure" aria-label="Essay draft structure">
+                <details class="essay-planning-section essay-planning-details essay-sources-section" open>
+                  <summary class="essay-section-summary">
+                    <span>Sources/Criticism</span>
+                    <small data-essay-planning-status="sources">0 words</small>
+                  </summary>
+                  <div class="essay-section-content">
+                    <label class="essay-planning-frame essay-sources-frame">
+                      <span>Sources/Criticism</span>
+                      <small class="essay-word-count" data-essay-word-count-for="sources">0 words</small>
+                      <textarea id="essay-sources" rows="6" placeholder="List useful sources, criticism, quotes, facts, statistics, or examples here."></textarea>
+                    </label>
+                  </div>
+                </details>
+
+                <details class="essay-planning-section essay-planning-details essay-plan-section" open>
+                  <summary class="essay-section-summary">
+                    <span>Plan</span>
+                    <small data-essay-planning-status="plan">0 words</small>
+                  </summary>
+                  <div class="essay-section-content">
+                    <label class="essay-planning-frame essay-plan-frame">
+                      <span>Plan</span>
+                      <p>Each idea represents one paragraph, so it can connect to sources when needed.</p>
+                      <small class="essay-word-count" data-essay-word-count-for="plan">0 words</small>
+                      <textarea id="essay-plan" rows="6" placeholder="Idea 1: ...&#10;Idea 2: ...&#10;Idea 3: ..."></textarea>
+                    </label>
+                  </div>
+                </details>
+
+                <details class="essay-structure-section essay-structure-introduction" open>
+                  <summary class="essay-section-summary">
+                    <span>Introduction</span>
+                    <small data-essay-section-status="introduction">Current step</small>
+                  </summary>
+                  <div class="essay-section-content">
+                    <div class="essay-intro-frame" aria-label="Introduction writing frame">
+                      <div class="essay-intro-frame-label">Introduction</div>
+                      <div class="essay-intro-frame-grid">
+                        <label class="essay-intro-field essay-intro-hook">
+                          <span>Hook</span>
+                          <small class="essay-word-count" data-essay-word-count-for="hook">0 words</small>
+                          <textarea id="essay-hook" rows="5" placeholder="Start with a statistic, example, question, quote, or anecdote."></textarea>
+                        </label>
+                        <label class="essay-intro-field essay-intro-thesis">
+                          <span>Thesis</span>
+                          <small class="essay-word-count" data-essay-word-count-for="thesis">0 words</small>
+                          <textarea id="essay-thesis" rows="3" placeholder="This essay argues/explains that ... because ..., ..., and ..." autofocus></textarea>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </details>
+
+                <div class="essay-body-count-control">
+                  <label>
+                    <span>Body paragraphs</span>
+                    <input id="essay-body-paragraph-count" type="number" min="1" max="6" value="1" inputmode="numeric" />
+                  </label>
+                </div>
+
+                <div class="essay-body-paragraphs" id="essay-body-paragraphs"></div>
+
+                <details class="essay-structure-section essay-structure-final-conclusion" open>
+                  <summary class="essay-section-summary">
+                    <span>Conclusion</span>
+                    <small data-essay-section-status="conclusion">Locked</small>
+                  </summary>
+                  <div class="essay-section-content">
+                    <label class="essay-structure-box">
+                      <span>Conclusion</span>
+                      <p class="essay-field-hint">Choose one ending strategy: restate thesis, forecast consequences, broader context, call for action, quotation, or statistic. Do not add new evidence.</p>
+                      <small class="essay-word-count" data-essay-word-count-for="conclusion">0 words</small>
+                      <textarea id="essay-conclusion" rows="5" placeholder="Restate thesis, forecast consequences, broader context, call for action, quotation, or statistic."></textarea>
+                    </label>
+                    <p class="essay-unlock-hint" id="essay-conclusion-hint"></p>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <label id="study-content-field">
+              <span>Text</span>
+              <textarea id="study-content" rows="18" spellcheck="true"></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button class="primary-button" type="submit">
+                <i data-lucide="save"></i>
+                <span id="study-save-label">Save text</span>
+              </button>
+              <button class="ghost-button" id="reset-study-form-button" type="button">
+                <i data-lucide="x"></i>
+                <span>Clear</span>
+              </button>
+              <span class="autosave-status" id="study-autosave-status">Autosave ready</span>
+            </div>
+          </form>
+
+          <form id="video-form" class="video-form hidden">
+            <input type="hidden" id="editing-video-id" />
+
+            <div class="field-grid">
+              <label>
+                <span>Source</span>
+                <select id="video-source" required></select>
+              </label>
+              <label>
+                <span>Unit</span>
+                <select id="video-branch"></select>
+              </label>
+              <label>
+                <span>Topic</span>
+                <select id="video-unit"></select>
+              </label>
+            </div>
+
+            <div class="field-grid two-plus-one">
+              <label>
+                <span>Title</span>
+                <input id="video-title" type="text" required autocomplete="off" />
+              </label>
+              <label>
+                <span>Type</span>
+                <select id="video-type">
+                  <option value="assignment">Assignment</option>
+                  <option value="presentation">Presentation</option>
+                  <option value="practice">Practice</option>
+                  <option value="reflection">Reflection</option>
+                  <option value="draft">Draft</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="field-grid two-plus-one video-background-controls">
+              <label>
+                <span>Background</span>
+                <select id="video-background-mode">
+                  <option value="none">None</option>
+                  <option value="blur">Blur</option>
+                  <option value="image">Image</option>
+                </select>
+              </label>
+              <div class="background-image-row hidden" id="background-image-row">
+                <button class="ghost-button" id="pick-video-background-button" type="button">
+                  <i data-lucide="image"></i>
+                  <span>Choose image</span>
+                </button>
+                <button class="ghost-button" id="clear-video-background-button" type="button">
+                  <i data-lucide="x"></i>
+                  <span>Clear</span>
+                </button>
+                <input class="hidden" id="video-background-input" type="file" accept="image/*" />
+                <div class="video-status" id="video-background-status">No image selected</div>
+              </div>
+            </div>
+
+            <div class="video-recorder">
+              <video id="video-preview" playsinline controls></video>
+              <div class="video-status" id="video-status">No video selected</div>
+              <div class="form-actions video-actions">
+                <button class="ghost-button" id="start-video-recording-button" type="button">
+                  <i data-lucide="video"></i>
+                  <span>Record</span>
+                </button>
+                <button class="ghost-button" id="stop-video-recording-button" type="button" disabled>
+                  <i data-lucide="square"></i>
+                  <span>Stop</span>
+                </button>
+                <button class="ghost-button" id="pick-video-button" type="button">
+                  <i data-lucide="upload"></i>
+                  <span>Upload</span>
+                </button>
+                <button class="ghost-button" id="clear-video-button" type="button">
+                  <i data-lucide="x"></i>
+                  <span>Clear</span>
+                </button>
+              </div>
+              <input class="hidden" id="video-input" type="file" accept="video/*" />
+            </div>
+
+            <div class="form-actions">
+              <button class="primary-button" type="submit">
+                <i data-lucide="save"></i>
+                <span id="video-save-label">Save video</span>
+              </button>
+              <button class="ghost-button" id="reset-video-form-button" type="button">
+                <i data-lucide="x"></i>
+                <span>Clear form</span>
+              </button>
+            </div>
+          </form>
+
+          <form id="test-form" class="test-form hidden">
+            <details class="test-collapsible-panel" id="test-details-panel" open>
+              <summary class="test-panel-summary">
+                <span><i data-lucide="file-plus-2"></i>Test details</span>
+                <strong>Title, course, term, PDF</strong>
+                <i data-lucide="chevron-down"></i>
+              </summary>
+              <div class="test-details-row">
+                <label class="test-title-field">
+                  <span>Test title</span>
+                  <input id="test-title" type="text" required autocomplete="off" placeholder="HT 2018 Knowledge and skills" />
+                </label>
+                <label>
+                  <span>Course</span>
+                  <input id="test-course" type="text" autocomplete="off" placeholder="English 6" />
+                </label>
+                <label>
+                  <span>Term</span>
+                  <input id="test-term" type="text" autocomplete="off" placeholder="Autumn" />
+                </label>
+                <label>
+                  <span>Year</span>
+                  <input id="test-year" type="text" inputmode="numeric" autocomplete="off" placeholder="2018" />
+                </label>
+                <label class="test-description-field">
+                  <span>Description</span>
+                  <input id="test-description" type="text" autocomplete="off" placeholder="Knowledge and skills" />
+                </label>
+
+                <div class="test-upload-panel">
+                  <div class="test-upload-heading">
+                    <span>PDF file</span>
+                    <div class="form-actions test-upload-actions">
+                      <button class="ghost-button" id="pick-test-pdf-button" type="button">
+                        <i data-lucide="upload"></i>
+                        <span>Upload</span>
+                      </button>
+                      <button class="ghost-button" id="clear-test-pdf-button" type="button">
+                        <i data-lucide="x"></i>
+                        <span>Clear</span>
+                      </button>
+                    </div>
+                  </div>
+                  <input class="hidden" id="test-pdf-input" type="file" accept="application/pdf,.pdf" />
+                  <div class="video-status" id="test-pdf-status">No PDF selected</div>
+                </div>
+
+                <div class="test-upload-panel">
+                  <div class="test-upload-heading">
+                    <span>Listening audio</span>
+                    <div class="form-actions test-upload-actions">
+                      <button class="ghost-button" id="pick-test-listening-audio-button" type="button">
+                        <i data-lucide="upload"></i>
+                        <span>Upload</span>
+                      </button>
+                      <button class="ghost-button" id="clear-test-listening-audio-button" type="button">
+                        <i data-lucide="x"></i>
+                        <span>Clear</span>
+                      </button>
+                    </div>
+                  </div>
+                  <input class="hidden" id="test-listening-audio-create-input" type="file" accept="audio/*,video/mp4,.mp3,.mp4,.m4a,.wav,.ogg,.webm" />
+                  <div class="video-status" id="test-listening-audio-create-status">No audio selected</div>
+                </div>
+
+                <div class="test-upload-panel">
+                  <div class="test-upload-heading">
+                    <span>Timestamp transcript PDF</span>
+                    <div class="form-actions test-upload-actions">
+                      <button class="ghost-button" id="pick-test-listening-transcript-button" type="button">
+                        <i data-lucide="upload"></i>
+                        <span>Upload</span>
+                      </button>
+                      <button class="ghost-button" id="clear-test-listening-transcript-button" type="button">
+                        <i data-lucide="x"></i>
+                        <span>Clear</span>
+                      </button>
+                    </div>
+                  </div>
+                  <input class="hidden" id="test-listening-transcript-create-input" type="file" accept="application/pdf,.pdf" />
+                  <div class="video-status" id="test-listening-transcript-create-status">No transcript selected</div>
+                </div>
+
+                <div class="test-section-preview" aria-label="Default test sections">
+                  <span><i data-lucide="book-open"></i>Reading</span>
+                  <span><i data-lucide="headphones"></i>Listening</span>
+                  <span><i data-lucide="pen-line"></i>Writing</span>
+                  <span><i data-lucide="languages"></i>Vocabulary</span>
+                </div>
+
+                <div class="form-actions test-save-actions">
+                  <button class="primary-button" type="submit">
+                    <i data-lucide="save"></i>
+                    <span id="test-save-label">Save test</span>
+                  </button>
+                  <button class="ghost-button" id="reset-test-form-button" type="button">
+                    <i data-lucide="x"></i>
+                    <span>Clear</span>
+                  </button>
+                </div>
+              </div>
+            </details>
+          </form>
+
+          <section class="test-lookup-panel" id="test-lookup-panel">
+            <details class="test-collapsible-panel" id="test-word-lookup-panel" open>
+              <summary class="test-panel-summary">
+                <span><i data-lucide="search"></i>Word lookup</span>
+                <strong>Dictionary and optional thesaurus</strong>
+                <i data-lucide="chevron-down"></i>
+              </summary>
+              <div class="test-lookup-row">
+                <label>
+                  <span>Word</span>
+                  <input id="test-lookup-word-input" type="text" autocomplete="off" placeholder="valuable" />
+                </label>
+                <label class="checkbox-line lookup-option">
+                  <input id="test-lookup-thesaurus-input" type="checkbox" />
+                  <span>Use thesaurus</span>
+                </label>
+                <button class="primary-button" id="test-lookup-word-button" type="button">
+                  <i data-lucide="search"></i>
+                  <span>Look up</span>
+                </button>
+              </div>
+              <div class="lookup-results hidden" id="test-lookup-results"></div>
+            </details>
+          </section>
+        </section>
+
+        <section class="library-panel">
+          <div class="library-tabs" role="tablist" aria-label="Library view">
+            <button class="tab active" id="words-library-tab" type="button">Words</button>
+            <button class="tab" id="texts-library-tab" type="button">Study texts</button>
+            <button class="tab" id="videos-library-tab" type="button">Videos</button>
+            <button class="tab" id="tests-library-tab" type="button">Tests</button>
+          </div>
+
+          <div class="library-view verb-library-view hidden" id="verb-library-view">
+            <div class="filters">
+              <label class="header-synced-search-field">
+                <span>Search</span>
+                <input id="verb-filter-search" type="search" autocomplete="off" placeholder="Search verb, form, or note" />
+              </label>
+            </div>
+            <div class="library-toolbar">
+              <div class="results-count" id="filtered-verb-count">0 verbs</div>
+            </div>
+            <div class="verb-list" id="verb-list"></div>
+          </div>
+
+          <div class="library-view word-library-view" id="word-library-view">
+            <div class="daily-review" id="daily-review">
+            <div>
+              <span>Today&apos;s plan</span>
+              <strong>Continue learning</strong>
+              <p id="review-plan-summary">Old weak words first, then a few new words.</p>
+            </div>
+            <div class="review-plan-actions">
+              <label class="number-control">
+                <span>Words</span>
+                <input id="review-word-count" type="number" min="1" max="50" step="1" value="10" />
+              </label>
+              <button class="primary-button" id="start-review-button" type="button">
+                <i data-lucide="play"></i>
+                <span>Start review</span>
+              </button>
+              <button class="ghost-button" id="start-sound-practice-button" type="button">
+                <i data-lucide="mic"></i>
+                <span>Sound practice</span>
+              </button>
+            </div>
+          </div>
+
+            <div class="filters">
+            <label class="header-synced-search-field">
+              <span>Search</span>
+              <input id="filter-search" type="search" autocomplete="off" placeholder="Search word, Arabic, or definition clue" />
+            </label>
+            <label>
+              <span>From</span>
+              <input id="filter-from" type="date" />
+            </label>
+            <label>
+              <span>To</span>
+              <input id="filter-to" type="date" />
+            </label>
+            <label>
+              <span>Source</span>
+              <select id="filter-source"></select>
+            </label>
+            <label>
+              <span>Unit</span>
+              <select id="filter-branch"></select>
+            </label>
+            <label>
+              <span>Topic</span>
+              <select id="filter-unit"></select>
+            </label>
+            <label>
+              <span>Part of speech</span>
+              <select id="filter-pos"></select>
+            </label>
+            <label>
+              <span>Arabic</span>
+              <select id="filter-arabic">
+                <option value="">All words</option>
+                <option value="with">With Arabic</option>
+                <option value="without">Without Arabic</option>
+              </select>
+            </label>
+            <button class="ghost-button" id="clear-filters-button" type="button">
+              <i data-lucide="filter-x"></i>
+              <span>Clear</span>
+            </button>
+          </div>
+
+            <div class="library-toolbar">
+            <div class="results-count" id="filtered-word-count">0 words</div>
+            <button class="ghost-button" id="select-visible-button" type="button">
+              <i data-lucide="check-square"></i>
+              <span>Select visible</span>
+            </button>
+            <button class="ghost-button" id="fetch-pronunciations-button" type="button">
+              <i data-lucide="volume-2"></i>
+              <span>Fetch audio</span>
+            </button>
+            <button class="primary-button" id="start-practice-button" type="button">
+              <i data-lucide="brain"></i>
+              <span>Practice selected words</span>
+            </button>
+          </div>
+            <div class="bulk-actions hidden" id="bulk-actions">
+            <strong id="bulk-selected-count">0 selected</strong>
+            <label>
+              <span>Move source</span>
+              <select id="bulk-source"></select>
+            </label>
+            <label>
+              <span>Unit</span>
+              <select id="bulk-branch"></select>
+            </label>
+            <label>
+              <span>Topic</span>
+              <select id="bulk-unit"></select>
+            </label>
+            <button class="primary-button" id="bulk-move-button" type="button">
+              <i data-lucide="move-right"></i>
+              <span>Move</span>
+            </button>
+            <button class="ghost-button danger-button" id="bulk-delete-button" type="button">
+              <i data-lucide="trash-2"></i>
+              <span>Delete</span>
+            </button>
+            <button class="ghost-button" id="bulk-clear-button" type="button">
+              <i data-lucide="x"></i>
+              <span>Clear</span>
+            </button>
+          </div>
+            <div class="word-list" id="word-list"></div>
+          </div>
+
+          <div class="library-view study-library-view hidden" id="study-library-view">
+            <div class="filters">
+              <label class="header-synced-search-field">
+                <span>Search</span>
+                <input id="study-filter-search" type="search" autocomplete="off" />
+              </label>
+              <label>
+                <span>Source</span>
+                <select id="study-filter-source"></select>
+              </label>
+              <label>
+                <span>Unit</span>
+                <select id="study-filter-branch"></select>
+              </label>
+              <label>
+                <span>Topic</span>
+                <select id="study-filter-unit"></select>
+              </label>
+              <label>
+                <span>Type</span>
+                <select id="study-filter-type"></select>
+              </label>
+              <button class="ghost-button" id="clear-study-filters-button" type="button">
+                <i data-lucide="filter-x"></i>
+                <span>Clear</span>
+              </button>
+            </div>
+
+            <div class="library-toolbar">
+              <div class="results-count" id="filtered-study-text-count">0 texts</div>
+              <button class="primary-button" id="new-study-text-button" type="button">
+                <i data-lucide="file-plus-2"></i>
+                <span>New text</span>
+              </button>
+            </div>
+
+            <div class="study-text-list" id="study-text-list"></div>
+          </div>
+
+          <div class="library-view video-library-view hidden" id="video-library-view">
+            <div class="filters">
+              <label class="header-synced-search-field">
+                <span>Search</span>
+                <input id="video-filter-search" type="search" autocomplete="off" />
+              </label>
+              <label>
+                <span>Source</span>
+                <select id="video-filter-source"></select>
+              </label>
+              <label>
+                <span>Unit</span>
+                <select id="video-filter-branch"></select>
+              </label>
+              <label>
+                <span>Topic</span>
+                <select id="video-filter-unit"></select>
+              </label>
+              <label>
+                <span>Type</span>
+                <select id="video-filter-type"></select>
+              </label>
+              <button class="ghost-button" id="clear-video-filters-button" type="button">
+                <i data-lucide="filter-x"></i>
+                <span>Clear</span>
+              </button>
+            </div>
+
+            <div class="library-toolbar">
+              <div class="results-count" id="filtered-study-video-count">0 videos</div>
+              <button class="primary-button" id="new-study-video-button" type="button">
+                <i data-lucide="video"></i>
+                <span>New video</span>
+              </button>
+            </div>
+
+            <div class="study-video-list" id="study-video-list"></div>
+          </div>
+
+          <div class="library-view test-library-view hidden" id="test-library-view">
+            <div class="library-toolbar" id="national-test-toolbar">
+              <div class="results-count" id="filtered-national-test-count">0 tests</div>
+              <button class="primary-button" id="new-national-test-button" type="button">
+                <i data-lucide="file-plus-2"></i>
+                <span>New test</span>
+              </button>
+            </div>
+
+            <div class="national-test-list" id="national-test-list"></div>
+
+            <div class="test-study-workspace" id="test-study-workspace">
+              <div class="empty-state">No test selected</div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="/app.js?v=study-document-graphic-crop-v1" type="module"></script>
+  </body>
+</html>

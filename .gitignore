@@ -1,0 +1,37 @@
+node_modules/
+.venv-document-intelligence/
+.cache/
+__pycache__/
+*.py[cod]
+models/
+data/document-intelligence-diagnostics/
+services/requirements-document-intelligence-lock.txt
+data/images/*
+!data/images/.gitkeep
+data/pronunciations/*
+!data/pronunciations/.gitkeep
+data/listening-audio/*
+!data/listening-audio/.gitkeep
+data/listening-transcripts/*
+!data/listening-transcripts/.gitkeep
+data/listening-media/*
+!data/listening-media/.gitkeep
+data/mp3 and transcrips home/*
+!data/mp3 and transcrips home/.gitkeep
+data/national-test-page-images/*
+!data/national-test-page-images/.gitkeep
+data/national-tests/*
+!data/national-tests/.gitkeep
+data/merriam-webster*-key.txt
+.env
+*.log
+test-results/
+pdf-analysis-preview/
+data/backups/
+data/**/*backup*
+data/**/*corrupt*
+data/**/*before-official*
+data/videos/*
+!data/videos/.gitkeep
+Screenshot *.jpg
+eng.traineddata

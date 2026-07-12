@@ -1,0 +1,123 @@
+{
+  "studyVideos": [
+    {
+      "id": "video_240fc289-5f4d-46d0-a32d-7f2e99e494d6",
+      "title": "The Orange",
+      "type": "assignment",
+      "sourceId": "source_06bd3cec-b700-4bd3-a400-a69e0d64c81e",
+      "branchId": "branch_3eac6201-dd14-4a52-88e3-1a23d729552f",
+      "unitId": "unit_501a5400-5012-4440-8c18-96cd45a8b807",
+      "video": {
+        "filename": "The Orange.mp4",
+        "originalName": "The Orange.mp4",
+        "mimeType": "video/mp4",
+        "size": 1182007,
+        "url": "/videos/The Orange.mp4"
+      },
+      "createdAt": "2026-06-04T06:36:03.395Z",
+      "updatedAt": "2026-06-05T07:32:35.534Z"
+    },
+    {
+      "id": "video_c645a731-3d66-4516-8a81-96c4d5c12906",
+      "title": "Analyse",
+      "type": "assignment",
+      "sourceId": "source_06bd3cec-b700-4bd3-a400-a69e0d64c81e",
+      "branchId": "branch_3eac6201-dd14-4a52-88e3-1a23d729552f",
+      "unitId": "unit_501a5400-5012-4440-8c18-96cd45a8b807",
+      "video": {
+        "filename": "Analyse.mp4",
+        "originalName": "Analyse.mp4",
+        "mimeType": "video/mp4",
+        "size": 14107963,
+        "url": "/videos/Analyse.mp4"
+      },
+      "createdAt": "2026-06-04T10:04:54.057Z",
+      "updatedAt": "2026-06-05T07:32:35.536Z"
+    },
+    {
+      "id": "video_ec18a0c2-1478-46bb-a5b6-a4759108cc1f",
+      "title": "01",
+      "type": "assignment",
+      "sourceId": "source_06bd3cec-b700-4bd3-a400-a69e0d64c81e",
+      "branchId": "branch_3eac6201-dd14-4a52-88e3-1a23d729552f",
+      "unitId": "unit_501a5400-5012-4440-8c18-96cd45a8b807",
+      "video": {
+        "filename": "01.mp4",
+        "originalName": "01.mp4",
+        "mimeType": "video/mp4",
+        "size": 2903056,
+        "url": "/videos/01.mp4"
+      },
+      "createdAt": "2026-06-05T06:31:43.552Z",
+      "updatedAt": "2026-06-05T07:32:35.537Z"
+    },
+    {
+      "id": "video_c31e543a-e56d-4b97-88c3-3cf2acf4c13d",
+      "title": "02",
+      "type": "assignment",
+      "sourceId": "source_06bd3cec-b700-4bd3-a400-a69e0d64c81e",
+      "branchId": "branch_3eac6201-dd14-4a52-88e3-1a23d729552f",
+      "unitId": "unit_501a5400-5012-4440-8c18-96cd45a8b807",
+      "video": {
+        "filename": "02.mp4",
+        "originalName": "02.mp4",
+        "mimeType": "video/mp4",
+        "size": 1872226,
+        "url": "/videos/02.mp4"
+      },
+      "createdAt": "2026-06-05T06:33:06.667Z",
+      "updatedAt": "2026-06-05T07:32:35.537Z"
+    },
+    {
+      "id": "video_694eb294-877f-4662-9443-ecb2c0a4f2fe",
+      "title": "04",
+      "type": "assignment",
+      "sourceId": "source_06bd3cec-b700-4bd3-a400-a69e0d64c81e",
+      "branchId": "branch_3eac6201-dd14-4a52-88e3-1a23d729552f",
+      "unitId": "unit_501a5400-5012-4440-8c18-96cd45a8b807",
+      "video": {
+        "filename": "04.mp4",
+        "originalName": "04.mp4",
+        "mimeType": "video/mp4",
+        "size": 2090553,
+        "url": "/videos/04.mp4"
+      },
+      "createdAt": "2026-06-05T06:34:39.437Z",
+      "updatedAt": "2026-06-05T07:32:35.538Z"
+    },
+    {
+      "id": "video_eb971c0e-1c77-4a9e-ac46-79854625ed70",
+      "title": "06",
+      "type": "assignment",
+      "sourceId": "source_06bd3cec-b700-4bd3-a400-a69e0d64c81e",
+      "branchId": "branch_3eac6201-dd14-4a52-88e3-1a23d729552f",
+      "unitId": "unit_501a5400-5012-4440-8c18-96cd45a8b807",
+      "video": {
+        "filename": "06.mp4",
+        "originalName": "06.mp4",
+        "mimeType": "video/mp4",
+        "size": 18027659,
+        "url": "/videos/06.mp4"
+      },
+      "createdAt": "2026-06-05T06:57:31.758Z",
+      "updatedAt": "2026-06-05T07:32:35.538Z"
+    },
+    {
+      "id": "video_09ca3044-15b5-40f3-9c4f-5059053be1f2",
+      "title": "08",
+      "type": "assignment",
+      "sourceId": "source_06bd3cec-b700-4bd3-a400-a69e0d64c81e",
+      "branchId": "branch_3eac6201-dd14-4a52-88e3-1a23d729552f",
+      "unitId": "unit_501a5400-5012-4440-8c18-96cd45a8b807",
+      "video": {
+        "filename": "08.mp4",
+        "originalName": "08.mp4",
+        "mimeType": "video/mp4",
+        "size": 18101076,
+        "url": "/videos/08.mp4"
+      },
+      "createdAt": "2026-06-05T07:13:00.526Z",
+      "updatedAt": "2026-06-05T07:32:35.539Z"
+    }
+  ]
+}

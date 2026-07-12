@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "vision-document-analysis/v1",
+  "page": {
+    "orientation": "portrait",
+    "pageType": "article",
+    "columnCount": 2,
+    "paragraphGrouping": [
+      {
+        "paragraphs": [
+          "left column paragraph",
+          "right column continuation"
+        ],
+        "continuation": true
+      }
+    ],
+    "readingOrder": [
+      {
+        "elementId": "paragraph-1",
+        "type": "paragraph",
+        "content": "left column paragraph"
+      }

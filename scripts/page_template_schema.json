@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "A4 Page Template Schema",
+  "description": "Extensible schema for representing normalized A4 page layouts, elements, and diagnostics. Designed to be interoperable with the existing app's page-layout normalizer.",
+  "type": "object",
+  "required": ["page"],
+  "properties": {
+    "page": {
+      "type": "object",
+      "required": ["page_number","a4","transform","regions"],
+      "properties": {
+        "page_number": { "type": "integer", "minimum": 1 },
+        "a4": {
+          "type": "object",
+          "required": ["width_pt","height_pt","unit","format"],
+          "properties": {
+            "width_pt": { "type": "number" },
+            "height_pt": { "type": "number" },
+            "unit": { "type": "string", "enum": ["pt","mm","px"] },
+            "format": { "type": "string" }
+          }
+        },
+        "transform": {
+          "type": "object",
+          "description": "Transform applied from source coordinates to A4 coordinates. Keeps extraction reversible.",
+          "properties": {
+            "scale_x": { "type": "number" },
+            "scale_y": { "type": "number" },
+            "translate_x_pt": { "type": "number" },
+            "translate_y_pt": { "type": "number" },
+            "rotation_deg": { "type": "number", "default": 0 }
+          }
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "original_width": { "type": "number" },
+            "original_height": { "type": "number" },
+            "dpi": { "type": "number" },
+            "mime_type": { "type": "string" }
+          }
+        },
+        "regions": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/region" }
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "created_at": { "type": "string", "format": "date-time" },
+            "provenance": { "type": "string" },
+            "page_confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+          }
+        },
+        "diagnostics": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "bbox": {
+      "type": "object",
+      "required": ["x_norm","y_norm","w_norm","h_norm","x_pt","y_pt","w_pt","h_pt"],
+      "properties": {
+        "x_norm": { "type": "number" },
+        "y_norm": { "type": "number" },
+        "w_norm": { "type": "number" },
+        "h_norm": { "type": "number" },
+        "x_pt": { "type": "number" },
+        "y_pt": { "type": "number" },
+        "w_pt": { "type": "number" },
+        "h_pt": { "type": "number" }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "source": { "type": "string", "enum": ["pdf-native","ocr"] },
+        "engine": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "text_run": {
+      "type": "object",
+      "required": ["text","bbox"],
+      "properties": {
+        "text": { "type": "string" },
+        "bbox": { "$ref": "#/definitions/bbox" },
+        "font_name": { "type": "string" },
+        "font_size_pt": { "type": "number" },
+        "font_weight": { "type": "string" },
+        "font_style": { "type": "string" },
+        "color": { "type": "string" },
+        "underline": { "type": "boolean" },
+        "hyphenation_hint": { "type": "boolean" },
+        "provenance": { "$ref": "#/definitions/provenance" }
+      }
+    },
+    "block": {
+      "type": "object",
+      "required": ["id","type","bbox","reading_order"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string", "enum": ["paragraph","heading","list","table","image","checkbox_group","free_text_line","caption","rule"] },
+        "role": { "type": "string" },
+        "bbox": { "$ref": "#/definitions/bbox" },
+        "reading_order": { "type": "integer" },
+        "column_index": { "type": "integer" },
+        "column_span": { "type": "integer" },
+        "text": { "type": "string" },
+        "text_runs": { "type": "array", "items": { "$ref": "#/definitions/text_run" } },
+        "children": { "type": "array" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "provenance": { "$ref": "#/definitions/provenance" }
+      }
+    },
+    "region": {
+      "type": "object",
+      "required": ["id","type","bbox","blocks"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string", "enum": ["text_region","figure","table","form","rule","raw_graphic","header","footer"] },
+        "bbox": { "$ref": "#/definitions/bbox" },
+        "blocks": { "type": "array", "items": { "$ref": "#/definitions/block" } },
+        "reading_order": { "type": "integer" },
+        "column_index": { "type": "integer" },
+        "provenance": { "$ref": "#/definitions/provenance" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    }
+  }
+}

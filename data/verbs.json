@@ -1,0 +1,2892 @@
+{
+  "verbs": [
+    {
+      "id": "verb_97a8cb24-8bcf-4d11-b0a4-138abb9f6f93",
+      "base": "be",
+      "past": [
+        "was/were"
+      ],
+      "pastParticiple": [
+        "been"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "be",
+        "was/were",
+        "been"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_0a4bc945-bd9b-4fd1-8a00-e87766151239",
+      "base": "become",
+      "past": [
+        "became"
+      ],
+      "pastParticiple": [
+        "become"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "become",
+        "became"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_c00cfcdd-3e4c-4bb5-b55d-f861f8e51e81",
+      "base": "begin",
+      "past": [
+        "began"
+      ],
+      "pastParticiple": [
+        "begun"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "begin",
+        "began",
+        "begun"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_56f6119c-6d73-42b1-b7b2-b39bdadb6818",
+      "base": "break",
+      "past": [
+        "broke"
+      ],
+      "pastParticiple": [
+        "broken"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "break",
+        "broke",
+        "broken"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_62e5dc9a-b4ce-42a6-b07b-1d50ac7bacce",
+      "base": "bring",
+      "past": [
+        "brought"
+      ],
+      "pastParticiple": [
+        "brought"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "bring",
+        "brought"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_9aa1ae74-582e-445c-a375-852c4136801d",
+      "base": "build",
+      "past": [
+        "built"
+      ],
+      "pastParticiple": [
+        "built"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "build",
+        "built"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_3760a9d6-0873-4160-bc74-4c8204261256",
+      "base": "buy",
+      "past": [
+        "bought"
+      ],
+      "pastParticiple": [
+        "bought"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "buy",
+        "bought"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_02083c82-9538-4c12-b77c-d0f99dd87885",
+      "base": "catch",
+      "past": [
+        "caught"
+      ],
+      "pastParticiple": [
+        "caught"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "catch",
+        "caught"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_d11ade52-a27b-42ff-8811-cab2819727ec",
+      "base": "choose",
+      "past": [
+        "chose"
+      ],
+      "pastParticiple": [
+        "chosen"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "choose",
+        "chose",
+        "chosen"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_cf8a9a35-a3db-4fbb-9dc2-77edd58e428f",
+      "base": "come",
+      "past": [
+        "came"
+      ],
+      "pastParticiple": [
+        "come"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "come",
+        "came"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_33b03e73-3865-49c6-bc6d-ae0735ca192e",
+      "base": "do",
+      "past": [
+        "did"
+      ],
+      "pastParticiple": [
+        "done"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "do",
+        "did",
+        "done"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_605a26d5-fc6a-4bfb-afa8-2363e96ca623",
+      "base": "drink",
+      "past": [
+        "drank"
+      ],
+      "pastParticiple": [
+        "drunk"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "drink",
+        "drank",
+        "drunk"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_af3368a1-2ce6-44a9-a457-bd3b08a20102",
+      "base": "drive",
+      "past": [
+        "drove"
+      ],
+      "pastParticiple": [
+        "driven"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "drive",
+        "drove",
+        "driven"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_10706757-62b0-4c39-ace4-57c0b3f3803e",
+      "base": "eat",
+      "past": [
+        "ate"
+      ],
+      "pastParticiple": [
+        "eaten"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "eat",
+        "ate",
+        "eaten"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_70b28b37-39f2-4458-9c8c-fe6116edb82b",
+      "base": "fall",
+      "past": [
+        "fell"
+      ],
+      "pastParticiple": [
+        "fallen"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "fall",
+        "fell",
+        "fallen"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_3bd2a4da-8a66-42a3-8989-af5c4ef7c424",
+      "base": "feel",
+      "past": [
+        "felt"
+      ],
+      "pastParticiple": [
+        "felt"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "feel",
+        "felt"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_f151ae57-1e5a-4dbc-812a-24a1b0c404e7",
+      "base": "find",
+      "past": [
+        "found"
+      ],
+      "pastParticiple": [
+        "found"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "find",
+        "found"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_658df730-46bf-45aa-baa8-bc5242cbecfa",
+      "base": "fly",
+      "past": [
+        "flew"
+      ],
+      "pastParticiple": [
+        "flown"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "fly",
+        "flew",
+        "flown"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_871f5701-ae63-42ed-a001-7556638ba494",
+      "base": "forget",
+      "past": [
+        "forgot"
+      ],
+      "pastParticiple": [
+        "forgotten"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "forget",
+        "forgot",
+        "forgotten"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_8603a3c6-6314-4d97-b1f5-fb0175614cde",
+      "base": "get",
+      "past": [
+        "got"
+      ],
+      "pastParticiple": [
+        "got"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "get",
+        "got"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_c7d4bf0b-f000-46e0-9b97-1022a0d5fa25",
+      "base": "give",
+      "past": [
+        "gave"
+      ],
+      "pastParticiple": [
+        "given"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "give",
+        "gave",
+        "given"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_c63c7217-dc17-47c6-82af-80865fe31ca2",
+      "base": "go",
+      "past": [
+        "went"
+      ],
+      "pastParticiple": [
+        "gone"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "go",
+        "went",
+        "gone"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_8c64db82-d11c-4a5b-9e34-5235f97a2966",
+      "base": "grow",
+      "past": [
+        "grew"
+      ],
+      "pastParticiple": [
+        "grown"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "grow",
+        "grew",
+        "grown"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_38e4766d-cf6d-40cf-9945-6bc459dffbdc",
+      "base": "have",
+      "past": [
+        "had"
+      ],
+      "pastParticiple": [
+        "had"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "have",
+        "had"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_8e8d4d63-c732-4851-b8c0-497484805300",
+      "base": "hear",
+      "past": [
+        "heard"
+      ],
+      "pastParticiple": [
+        "heard"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "hear",
+        "heard"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_e461df69-2468-4087-ab7e-bf28c4556f85",
+      "base": "keep",
+      "past": [
+        "kept"
+      ],
+      "pastParticiple": [
+        "kept"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "keep",
+        "kept"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_0d31de02-7bcf-48a9-9b10-a682a651653d",
+      "base": "know",
+      "past": [
+        "knew"
+      ],
+      "pastParticiple": [
+        "known"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "know",
+        "knew",
+        "known"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_9616b8a4-951a-4380-839e-2789006a0879",
+      "base": "leave",
+      "past": [
+        "left"
+      ],
+      "pastParticiple": [
+        "left"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "leave",
+        "left"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_124a74aa-2a8e-44df-8316-28924b91c197",
+      "base": "lose",
+      "past": [
+        "lost"
+      ],
+      "pastParticiple": [
+        "lost"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "lose",
+        "lost"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_88c18739-4cad-44eb-aec4-515864105551",
+      "base": "make",
+      "past": [
+        "made"
+      ],
+      "pastParticiple": [
+        "made"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "make",
+        "made"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_e9b8122a-92b9-4476-bce1-d1827594962a",
+      "base": "meet",
+      "past": [
+        "met"
+      ],
+      "pastParticiple": [
+        "met"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "meet",
+        "met"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_5003100b-3a24-4884-b01a-01f573865a48",
+      "base": "pay",
+      "past": [
+        "paid"
+      ],
+      "pastParticiple": [
+        "paid"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "pay",
+        "paid"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_3c477e15-8f0b-4ff6-affe-56ce5c416279",
+      "base": "put",
+      "past": [
+        "put"
+      ],
+      "pastParticiple": [
+        "put"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "put"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_59566b5a-c074-4b97-83f3-a29b92eb5cc0",
+      "base": "read",
+      "past": [
+        "read"
+      ],
+      "pastParticiple": [
+        "read"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "read"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_90d45e47-56a3-41ee-9049-06420dc6080d",
+      "base": "ride",
+      "past": [
+        "rode"
+      ],
+      "pastParticiple": [
+        "ridden"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "ride",
+        "rode",
+        "ridden"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_9b9c3425-aada-4e6a-9380-e32dfef8df0d",
+      "base": "ring",
+      "past": [
+        "rang"
+      ],
+      "pastParticiple": [
+        "rung"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "ring",
+        "rang",
+        "rung"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_5af098e4-73c3-4b5f-9fb0-6f7b7957e2ca",
+      "base": "run",
+      "past": [
+        "ran"
+      ],
+      "pastParticiple": [
+        "run"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "run",
+        "ran"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_0c32097c-fa8d-4866-93c2-13142bffe505",
+      "base": "say",
+      "past": [
+        "said"
+      ],
+      "pastParticiple": [
+        "said"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "say",
+        "said"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_eb022a0a-da88-443c-bdf1-84e82ec4cc1b",
+      "base": "see",
+      "past": [
+        "saw"
+      ],
+      "pastParticiple": [
+        "seen"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "see",
+        "saw",
+        "seen"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_1fc0215a-739a-457e-a914-7a4c06704cb7",
+      "base": "sell",
+      "past": [
+        "sold"
+      ],
+      "pastParticiple": [
+        "sold"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "sell",
+        "sold"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_0e1416fe-c64a-44af-8ff7-1b7f44e1f41d",
+      "base": "send",
+      "past": [
+        "sent"
+      ],
+      "pastParticiple": [
+        "sent"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "send",
+        "sent"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_fe3bdbd1-2596-49a1-9039-b82ef486491a",
+      "base": "sing",
+      "past": [
+        "sang"
+      ],
+      "pastParticiple": [
+        "sung"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "sing",
+        "sang",
+        "sung"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_29230ee9-7e05-4d9f-847a-c9d9cf3e11ed",
+      "base": "sit",
+      "past": [
+        "sat"
+      ],
+      "pastParticiple": [
+        "sat"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "sit",
+        "sat"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_d0f595b4-c2f2-4821-98a7-4bc19eedf451",
+      "base": "sleep",
+      "past": [
+        "slept"
+      ],
+      "pastParticiple": [
+        "slept"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "sleep",
+        "slept"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_f2973ab5-8cc8-4367-b3cc-c24287bc072b",
+      "base": "speak",
+      "past": [
+        "spoke"
+      ],
+      "pastParticiple": [
+        "spoken"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "speak",
+        "spoke",
+        "spoken"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_1fa6c046-46cb-4abe-9c96-0aed6d339af9",
+      "base": "spend",
+      "past": [
+        "spent"
+      ],
+      "pastParticiple": [
+        "spent"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "spend",
+        "spent"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_5c94e0ce-3ba8-487e-9816-fdc4bd984cf5",
+      "base": "take",
+      "past": [
+        "took"
+      ],
+      "pastParticiple": [
+        "taken"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "take",
+        "took",
+        "taken"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_cd0350d0-49ce-49b0-867f-a48a33f310ba",
+      "base": "teach",
+      "past": [
+        "taught"
+      ],
+      "pastParticiple": [
+        "taught"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "teach",
+        "taught"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_bc5238f6-45cb-406e-aab5-7f2446787afb",
+      "base": "tell",
+      "past": [
+        "told"
+      ],
+      "pastParticiple": [
+        "told"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "tell",
+        "told"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_bb2908b5-7cb6-48e6-a149-ab41696385d4",
+      "base": "think",
+      "past": [
+        "thought"
+      ],
+      "pastParticiple": [
+        "thought"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "think",
+        "thought"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:36:46.676Z",
+      "updatedAt": "2026-06-12T16:36:46.676Z"
+    },
+    {
+      "id": "verb_3d758544-549b-41d4-9d6d-580c080c8702",
+      "base": "awake",
+      "past": [
+        "awoke"
+      ],
+      "pastParticiple": [
+        "awoken"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "awake",
+        "awoke",
+        "awoken"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_b1fb4444-2698-4162-9fe1-01c81ce0107e",
+      "base": "beat",
+      "past": [
+        "beat"
+      ],
+      "pastParticiple": [
+        "beaten"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "beat",
+        "beaten"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_d21b38f8-1bda-4559-9d9b-f2106df8f301",
+      "base": "bend",
+      "past": [
+        "bent"
+      ],
+      "pastParticiple": [
+        "bent"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "bend",
+        "bent"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_4bc0f918-cfe8-44af-a672-3c343c4986a4",
+      "base": "bet",
+      "past": [
+        "bet"
+      ],
+      "pastParticiple": [
+        "bet"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "bet"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_ceb93339-86ad-4f19-aae7-8503cd7645a9",
+      "base": "bite",
+      "past": [
+        "bit"
+      ],
+      "pastParticiple": [
+        "bitten"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "bite",
+        "bit",
+        "bitten"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_ef1aa2f4-128b-477f-bf64-b160f15fcd9b",
+      "base": "bleed",
+      "past": [
+        "bled"
+      ],
+      "pastParticiple": [
+        "bled"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "bleed",
+        "bled"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_c1ed59f4-596e-4644-86d9-cc024ed0f358",
+      "base": "blow",
+      "past": [
+        "blew"
+      ],
+      "pastParticiple": [
+        "blown"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "blow",
+        "blew",
+        "blown"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_72e169b9-ea73-4566-abff-1ffec4b3dab4",
+      "base": "broadcast",
+      "past": [
+        "broadcast"
+      ],
+      "pastParticiple": [
+        "broadcast"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "broadcast"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_68c5cd7b-b95c-49b8-91d2-4a414ec54fc1",
+      "base": "burn",
+      "past": [
+        "burnt/burned"
+      ],
+      "pastParticiple": [
+        "burnt/burned"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "burn",
+        "burnt/burned"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_55e74ba5-dd24-4bb0-ab7e-8e39d068c3a3",
+      "base": "burst",
+      "past": [
+        "burst"
+      ],
+      "pastParticiple": [
+        "burst"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "burst"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_2b54764b-7962-4918-b1b1-3c08acd264c2",
+      "base": "cost",
+      "past": [
+        "cost"
+      ],
+      "pastParticiple": [
+        "cost"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "cost"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_f52a90b3-ddfe-4db7-b070-1a8569e6016a",
+      "base": "creep",
+      "past": [
+        "crept"
+      ],
+      "pastParticiple": [
+        "crept"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "creep",
+        "crept"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_12a348db-0bf5-4950-89fe-d3f7c79aaddf",
+      "base": "cut",
+      "past": [
+        "cut"
+      ],
+      "pastParticiple": [
+        "cut"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "cut"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_f4dcc591-a738-4542-9d63-dea8bfbb02cc",
+      "base": "deal",
+      "past": [
+        "dealt"
+      ],
+      "pastParticiple": [
+        "dealt"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "deal",
+        "dealt"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_96d691eb-cec0-41e5-ad57-4e670ad72584",
+      "base": "dig",
+      "past": [
+        "dug"
+      ],
+      "pastParticiple": [
+        "dug"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "dig",
+        "dug"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_7cb6aef3-180d-45a6-9d14-d36ecf00d698",
+      "base": "draw",
+      "past": [
+        "drew"
+      ],
+      "pastParticiple": [
+        "drawn"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "draw",
+        "drew",
+        "drawn"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_c1603dda-12ff-4bbd-95ea-ab0df5d198e9",
+      "base": "dream",
+      "past": [
+        "dreamt/dreamed"
+      ],
+      "pastParticiple": [
+        "dreamt/dreamed"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "dream",
+        "dreamt/dreamed"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_cc8ab486-fb3c-4fde-abe9-3ada8c6990e0",
+      "base": "feed",
+      "past": [
+        "fed"
+      ],
+      "pastParticiple": [
+        "fed"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "feed",
+        "fed"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_99aa2dc5-a359-4188-a4c8-7ade7e356706",
+      "base": "fight",
+      "past": [
+        "fought"
+      ],
+      "pastParticiple": [
+        "fought"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "fight",
+        "fought"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_887c10c6-df59-4643-a167-09dd8b908812",
+      "base": "flee",
+      "past": [
+        "fled"
+      ],
+      "pastParticiple": [
+        "fled"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "flee",
+        "fled"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_168871ee-fe77-48af-b955-3a26b99de1e3",
+      "base": "forbid",
+      "past": [
+        "forbade"
+      ],
+      "pastParticiple": [
+        "forbidden"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "forbid",
+        "forbade",
+        "forbidden"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_36a89cf7-e530-407d-a286-f7d12cae531c",
+      "base": "freeze",
+      "past": [
+        "froze"
+      ],
+      "pastParticiple": [
+        "frozen"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "freeze",
+        "froze",
+        "frozen"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_704eb2c8-be4a-424f-8e19-564d7ff2b3ad",
+      "base": "hang",
+      "past": [
+        "hung"
+      ],
+      "pastParticiple": [
+        "hung"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "hang",
+        "hung"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_df92ab85-07e1-4f87-8781-111e89b93e5a",
+      "base": "hide",
+      "past": [
+        "hid"
+      ],
+      "pastParticiple": [
+        "hidden"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "hide",
+        "hid",
+        "hidden"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_b23b0747-4a4b-4730-aba4-a2f86d70ee8e",
+      "base": "hit",
+      "past": [
+        "hit"
+      ],
+      "pastParticiple": [
+        "hit"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "hit"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_4a8ae847-6664-492d-9442-3c36572d28fc",
+      "base": "hold",
+      "past": [
+        "held"
+      ],
+      "pastParticiple": [
+        "held"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "hold",
+        "held"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_918bba6f-3b84-4b89-80eb-b6a8de4fb03c",
+      "base": "hurt",
+      "past": [
+        "hurt"
+      ],
+      "pastParticiple": [
+        "hurt"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "hurt"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_aa2e7b08-66a8-4ebd-a317-1c14f8b8db35",
+      "base": "lead",
+      "past": [
+        "led"
+      ],
+      "pastParticiple": [
+        "led"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "lead",
+        "led"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_e3c55121-b990-4f0e-a107-554d13157f04",
+      "base": "lend",
+      "past": [
+        "lent"
+      ],
+      "pastParticiple": [
+        "lent"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "lend",
+        "lent"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_ed5c282b-3f39-4853-b8c2-40ef1b2e9920",
+      "base": "let",
+      "past": [
+        "let"
+      ],
+      "pastParticiple": [
+        "let"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "let"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_9feebd99-63aa-4196-8d95-95aca44d8ea0",
+      "base": "lie",
+      "past": [
+        "lay"
+      ],
+      "pastParticiple": [
+        "lain"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "lie",
+        "lay",
+        "lain"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_db5fa792-b73b-465c-aeb2-6d8ed09fe8ff",
+      "base": "light",
+      "past": [
+        "lit"
+      ],
+      "pastParticiple": [
+        "lit"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "light",
+        "lit"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_8b9cae70-6a22-4039-bc0c-8fe225fb71b8",
+      "base": "mean",
+      "past": [
+        "meant"
+      ],
+      "pastParticiple": [
+        "meant"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "mean",
+        "meant"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_debe9241-e83b-4263-888c-5561d3b6c55a",
+      "base": "mistake",
+      "past": [
+        "mistook"
+      ],
+      "pastParticiple": [
+        "mistaken"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "mistake",
+        "mistook",
+        "mistaken"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_e231d5cf-421d-46b0-a83a-2d6a153301b6",
+      "base": "quit",
+      "past": [
+        "quit"
+      ],
+      "pastParticiple": [
+        "quit"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "quit"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_96fd622f-3b7b-4376-95ce-cf9ee5a672af",
+      "base": "rise",
+      "past": [
+        "rose"
+      ],
+      "pastParticiple": [
+        "risen"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "rise",
+        "rose",
+        "risen"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_0b431035-23a1-45e7-b527-a2986f399751",
+      "base": "seek",
+      "past": [
+        "sought"
+      ],
+      "pastParticiple": [
+        "sought"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "seek",
+        "sought"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_87ae64ad-adde-42f7-9a36-c1befc3f906b",
+      "base": "shake",
+      "past": [
+        "shook"
+      ],
+      "pastParticiple": [
+        "shaken"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "shake",
+        "shook",
+        "shaken"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_4518b4fd-cc13-4be1-adb0-6ae1c4c6ff41",
+      "base": "shine",
+      "past": [
+        "shone"
+      ],
+      "pastParticiple": [
+        "shone"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "shine",
+        "shone"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_e8135ae3-1a88-4bab-a45e-71ad46f44d62",
+      "base": "shoot",
+      "past": [
+        "shot"
+      ],
+      "pastParticiple": [
+        "shot"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "shoot",
+        "shot"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_70220f21-3e39-4ac9-bf4a-89bc95a00f13",
+      "base": "shut",
+      "past": [
+        "shut"
+      ],
+      "pastParticiple": [
+        "shut"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "shut"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_155d7974-d265-4ff9-868e-1927e1fd66c3",
+      "base": "sink",
+      "past": [
+        "sank"
+      ],
+      "pastParticiple": [
+        "sunk"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "sink",
+        "sank",
+        "sunk"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_4d533a12-4d49-470a-845a-d06c45205426",
+      "base": "smell",
+      "past": [
+        "smelt/smelled"
+      ],
+      "pastParticiple": [
+        "smelt/smelled"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "smell",
+        "smelt/smelled"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_34720965-c9d8-458e-adc6-ec9e0a0777a1",
+      "base": "steal",
+      "past": [
+        "stole"
+      ],
+      "pastParticiple": [
+        "stolen"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "steal",
+        "stole",
+        "stolen"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_ec9a9894-b8a1-4d62-abd1-010b3b16061f",
+      "base": "swear",
+      "past": [
+        "swore"
+      ],
+      "pastParticiple": [
+        "sworn"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "swear",
+        "swore",
+        "sworn"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_c9c1ddff-cd2a-4430-940d-441f18136465",
+      "base": "sweep",
+      "past": [
+        "swept"
+      ],
+      "pastParticiple": [
+        "swept"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "sweep",
+        "swept"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_ecc0e052-a4b7-4ba2-96e6-5400fa042adb",
+      "base": "swim",
+      "past": [
+        "swam"
+      ],
+      "pastParticiple": [
+        "swum"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "swim",
+        "swam",
+        "swum"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_83e9b2c9-7a17-4c65-9281-a5adc8eafe02",
+      "base": "wear",
+      "past": [
+        "wore"
+      ],
+      "pastParticiple": [
+        "worn"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "wear",
+        "wore",
+        "worn"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_3d5afc8c-c18e-42c1-8009-fc4e646f40e8",
+      "base": "win",
+      "past": [
+        "won"
+      ],
+      "pastParticiple": [
+        "won"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "win",
+        "won"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_55c06382-a28d-4449-bc1a-b5a1d9b8daca",
+      "base": "write",
+      "past": [
+        "wrote"
+      ],
+      "pastParticiple": [
+        "written"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "write",
+        "wrote",
+        "written"
+      ],
+      "note": "",
+      "createdAt": "2026-06-12T16:47:03.076Z",
+      "updatedAt": "2026-06-12T16:47:03.076Z"
+    },
+    {
+      "id": "verb_c1731cfe-038b-4b60-9846-eeba0ca4d04c",
+      "base": "behold",
+      "past": [
+        "beheld"
+      ],
+      "pastParticiple": [
+        "beheld"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "behold",
+        "beheld"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_f5db927b-5a70-444d-980f-d7719b2411fc",
+      "base": "befall",
+      "past": [
+        "befell"
+      ],
+      "pastParticiple": [
+        "befallen"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "befall",
+        "befell",
+        "befallen"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_6539682b-dd07-4a82-ad3c-c5d7b1267ed4",
+      "base": "beget",
+      "past": [
+        "begot"
+      ],
+      "pastParticiple": [
+        "begotten"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "beget",
+        "begot",
+        "begotten"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_5f64b38a-0335-4f45-8e95-1adf2d16e711",
+      "base": "beset",
+      "past": [
+        "beset"
+      ],
+      "pastParticiple": [
+        "beset"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "beset"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_dd67c6ed-5037-4dbc-ad41-10e9a2f2fd82",
+      "base": "bide",
+      "past": [
+        "bided/bode"
+      ],
+      "pastParticiple": [
+        "bided/bidden"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "bide",
+        "bided/bode",
+        "bided/bidden"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_4274ecc4-2784-4f91-b1da-14015468dc89",
+      "base": "cleave",
+      "past": [
+        "cleft/clove"
+      ],
+      "pastParticiple": [
+        "cleft/cloven"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "cleave",
+        "cleft/clove",
+        "cleft/cloven"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_977b7630-6281-4769-9bbf-4a16deb3651a",
+      "base": "dive",
+      "past": [
+        "dived/dove"
+      ],
+      "pastParticiple": [
+        "dived"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "dive",
+        "dived/dove",
+        "dived"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_96a91b7b-aa60-44b8-b730-c7e2038cc189",
+      "base": "dwell",
+      "past": [
+        "dwelt/dwelled"
+      ],
+      "pastParticiple": [
+        "dwelt/dwelled"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "dwell",
+        "dwelt/dwelled"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_62a7ad79-1e18-42f3-a412-dba8500510e0",
+      "base": "forecast",
+      "past": [
+        "forecast"
+      ],
+      "pastParticiple": [
+        "forecast"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "forecast"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_24a4ec06-a5ec-42a0-9b91-7581e0cb3276",
+      "base": "foresee",
+      "past": [
+        "foresaw"
+      ],
+      "pastParticiple": [
+        "foreseen"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "foresee",
+        "foresaw",
+        "foreseen"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_f2295341-b1fd-47c3-8b75-938c3a0e5775",
+      "base": "foretell",
+      "past": [
+        "foretold"
+      ],
+      "pastParticiple": [
+        "foretold"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "foretell",
+        "foretold"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_05eb13f0-fc7e-41a1-9fca-bb4f3a813753",
+      "base": "forgo",
+      "past": [
+        "forwent"
+      ],
+      "pastParticiple": [
+        "forgone"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "forgo",
+        "forwent",
+        "forgone"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_06652e49-4c43-44ab-b29a-e9326b3ba664",
+      "base": "gainsay",
+      "past": [
+        "gainsaid"
+      ],
+      "pastParticiple": [
+        "gainsaid"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "gainsay",
+        "gainsaid"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_bf522022-14fd-41e5-9b19-5ea3d9775056",
+      "base": "gild",
+      "past": [
+        "gilded/gilt"
+      ],
+      "pastParticiple": [
+        "gilded/gilt"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "gild",
+        "gilded/gilt"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_5d3176ae-7b07-4cd9-80f9-5a5896f2bd25",
+      "base": "input",
+      "past": [
+        "input"
+      ],
+      "pastParticiple": [
+        "input"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "input"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_52c7f134-01cb-4dcd-9cc1-5332e10ac9eb",
+      "base": "mislead",
+      "past": [
+        "misled"
+      ],
+      "pastParticiple": [
+        "misled"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "mislead",
+        "misled"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_a5451781-88f7-45c9-8bda-47bfdd218c9c",
+      "base": "misread",
+      "past": [
+        "misread"
+      ],
+      "pastParticiple": [
+        "misread"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "misread"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_72550d08-0bb3-43be-b011-cde7e2abf972",
+      "base": "misspeak",
+      "past": [
+        "misspoke"
+      ],
+      "pastParticiple": [
+        "misspoken"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "misspeak",
+        "misspoke",
+        "misspoken"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_cacfb81a-cd1e-4c36-a7da-940c6c4cd516",
+      "base": "offset",
+      "past": [
+        "offset"
+      ],
+      "pastParticiple": [
+        "offset"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "offset"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_134dc73e-00aa-4b0a-98a4-9c47216bf008",
+      "base": "outbid",
+      "past": [
+        "outbid"
+      ],
+      "pastParticiple": [
+        "outbid"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "outbid"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_29c607ba-aadf-496d-9cf0-91368dc60902",
+      "base": "outdo",
+      "past": [
+        "outdid"
+      ],
+      "pastParticiple": [
+        "outdone"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "outdo",
+        "outdid",
+        "outdone"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_16d91645-4e08-4d33-b00a-919ca5ac3bd8",
+      "base": "outgrow",
+      "past": [
+        "outgrew"
+      ],
+      "pastParticiple": [
+        "outgrown"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "outgrow",
+        "outgrew",
+        "outgrown"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_61177516-e51a-460b-b72f-fcbcab75d418",
+      "base": "outrun",
+      "past": [
+        "outran"
+      ],
+      "pastParticiple": [
+        "outrun"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "outrun",
+        "outran"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_ec0e0b6d-7aa3-4184-8324-67cbdea7ea51",
+      "base": "outshine",
+      "past": [
+        "outshone"
+      ],
+      "pastParticiple": [
+        "outshone"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "outshine",
+        "outshone"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_4858b38e-66f3-4c1a-b190-2e336c43aebe",
+      "base": "oversleep",
+      "past": [
+        "overslept"
+      ],
+      "pastParticiple": [
+        "overslept"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "oversleep",
+        "overslept"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_293e24b5-3155-4b88-8763-90e4fc0d892c",
+      "base": "partake",
+      "past": [
+        "partook"
+      ],
+      "pastParticiple": [
+        "partaken"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "partake",
+        "partook",
+        "partaken"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_11914427-ba78-4ba5-9ca0-ac63a5757c48",
+      "base": "plead",
+      "past": [
+        "pleaded/pled"
+      ],
+      "pastParticiple": [
+        "pleaded/pled"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "plead",
+        "pleaded/pled"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_4f17a988-967f-4f89-99e1-9f15ccb36c2d",
+      "base": "proofread",
+      "past": [
+        "proofread"
+      ],
+      "pastParticiple": [
+        "proofread"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "proofread"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_d6cd3479-c2a2-4d5e-8e27-990e7f8ade0e",
+      "base": "rebuild",
+      "past": [
+        "rebuilt"
+      ],
+      "pastParticiple": [
+        "rebuilt"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "rebuild",
+        "rebuilt"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_aedbec6a-b7f2-4184-9942-823dcff4eeb7",
+      "base": "recast",
+      "past": [
+        "recast"
+      ],
+      "pastParticiple": [
+        "recast"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "recast"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_f5bf936b-547a-479f-bf39-6d73cecbadd0",
+      "base": "redo",
+      "past": [
+        "redid"
+      ],
+      "pastParticiple": [
+        "redone"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "redo",
+        "redid",
+        "redone"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_1c6c532d-ca81-4d7a-8e46-cda29d5dd308",
+      "base": "remake",
+      "past": [
+        "remade"
+      ],
+      "pastParticiple": [
+        "remade"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "remake",
+        "remade"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_5bde021c-3316-4d40-b0a8-4c4ad159b809",
+      "base": "repay",
+      "past": [
+        "repaid"
+      ],
+      "pastParticiple": [
+        "repaid"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "repay",
+        "repaid"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_4d853ae7-5050-43f3-8644-abe0631d8f00",
+      "base": "reset",
+      "past": [
+        "reset"
+      ],
+      "pastParticiple": [
+        "reset"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "reset"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_e7e7767d-0d22-46e0-9a8f-7ccb9a9bb8ea",
+      "base": "retake",
+      "past": [
+        "retook"
+      ],
+      "pastParticiple": [
+        "retaken"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "retake",
+        "retook",
+        "retaken"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_5bf4836c-b3cc-4d5b-9d3a-db10f0e2f115",
+      "base": "rewrite",
+      "past": [
+        "rewrote"
+      ],
+      "pastParticiple": [
+        "rewritten"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "rewrite",
+        "rewrote",
+        "rewritten"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_8b5b0a64-519a-4c3c-975e-b27f9d146daa",
+      "base": "show",
+      "past": [
+        "showed"
+      ],
+      "pastParticiple": [
+        "shown/showed"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "show",
+        "showed",
+        "shown/showed"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_190932d3-0fbc-4209-a0ce-d1c5e549995f",
+      "base": "slay",
+      "past": [
+        "slew/slayed"
+      ],
+      "pastParticiple": [
+        "slain/slayed"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "slay",
+        "slew/slayed",
+        "slain/slayed"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_55dff72e-f5e5-4efe-b0eb-0bba38d26fd3",
+      "base": "sneak",
+      "past": [
+        "sneaked/snuck"
+      ],
+      "pastParticiple": [
+        "sneaked/snuck"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "sneak",
+        "sneaked/snuck"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_8fedbb9f-c3d2-4940-a281-0f083443de32",
+      "base": "speed",
+      "past": [
+        "sped/speeded"
+      ],
+      "pastParticiple": [
+        "sped/speeded"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "speed",
+        "sped/speeded"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_02b933c7-cda8-4e28-8849-07d6d2490564",
+      "base": "spell",
+      "past": [
+        "spelt/spelled"
+      ],
+      "pastParticiple": [
+        "spelt/spelled"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "spell",
+        "spelt/spelled"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_671f1213-68ab-46d6-84f1-9e94742e89a2",
+      "base": "spill",
+      "past": [
+        "spilt/spilled"
+      ],
+      "pastParticiple": [
+        "spilt/spilled"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "spill",
+        "spilt/spilled"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_61eb4567-805c-4ce7-8e22-d644ad7ef738",
+      "base": "spoil",
+      "past": [
+        "spoilt/spoiled"
+      ],
+      "pastParticiple": [
+        "spoilt/spoiled"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "spoil",
+        "spoilt/spoiled"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_be02abd5-3de0-4c36-80ce-4cf66423bd0f",
+      "base": "stride",
+      "past": [
+        "strode"
+      ],
+      "pastParticiple": [
+        "stridden"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "stride",
+        "strode",
+        "stridden"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_d83b7762-231c-4ce1-a2de-20f8cea6f14c",
+      "base": "swell",
+      "past": [
+        "swelled"
+      ],
+      "pastParticiple": [
+        "swollen/swelled"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "swell",
+        "swelled",
+        "swollen/swelled"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_d8d8e720-018c-43fb-8cd2-fd7e5313bb42",
+      "base": "tread",
+      "past": [
+        "trod"
+      ],
+      "pastParticiple": [
+        "trodden/trod"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "tread",
+        "trod",
+        "trodden/trod"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_722fc9ae-392e-4e78-8c54-be02c679c4b6",
+      "base": "undergo",
+      "past": [
+        "underwent"
+      ],
+      "pastParticiple": [
+        "undergone"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "undergo",
+        "underwent",
+        "undergone"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_3e3f3ed8-7ada-4461-ba2e-e1c564fa9df8",
+      "base": "underlie",
+      "past": [
+        "underlay"
+      ],
+      "pastParticiple": [
+        "underlain"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "underlie",
+        "underlay",
+        "underlain"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_826e555e-ed96-4fe1-bb9b-7f055696f5e3",
+      "base": "withhold",
+      "past": [
+        "withheld"
+      ],
+      "pastParticiple": [
+        "withheld"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "withhold",
+        "withheld"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    },
+    {
+      "id": "verb_9f72bb6a-f7ce-417c-a3a2-3de7160af21d",
+      "base": "withstand",
+      "past": [
+        "withstood"
+      ],
+      "pastParticiple": [
+        "withstood"
+      ],
+      "thirdPerson": [],
+      "presentParticiple": [],
+      "forms": [
+        "withstand",
+        "withstood"
+      ],
+      "note": "",
+      "createdAt": "2026-06-13T07:00:05.457Z",
+      "updatedAt": "2026-06-13T07:00:05.457Z"
+    }
+  ]
+}
