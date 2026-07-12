@@ -27,6 +27,7 @@ assert.match(prompt, /even without a graphic/);
 assert.match(prompt, /Do not add geometry, fake graphics, empty nodes, or reserved regions/);
 assert.match(prompt, /group content uses children/);
 assert.match(prompt, /text content uses value/);
+assert.match(prompt, /Every node must include type/);
 assert.match(prompt, /group\(role=question\)/);
 assert.match(prompt, /selectionControl to checkbox/);
 assert.match(prompt, /Preserve visible paragraph boundaries/);

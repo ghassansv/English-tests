@@ -75,6 +75,7 @@ import {
 } from "./js/known-word-config.js";
 import { renderPageLayoutToHtml } from "./page-layout.js?v=a4-layout-1";
 import { validateStudyDocumentV1 } from "./js/study-document-v1.js?v=canonical-study-document-v1-2";
+import { repairMissingStudyDocumentNodeTypes } from "./js/study-document-import-repair.js?v=study-document-import-repair-v1";
 import { renderStudyDocumentV1ToHtml } from "./js/study-document-v1-renderer.js?v=canonical-study-document-renderer-v1-6";
 import {
   studyDocumentPagePrompt,
@@ -3901,6 +3902,16 @@ async function submitStudyDocumentDialog() {
       message: "schemaVersion must equal study-document/v1 or study-document-translation/v1."
     }]);
     return;
+  }
+
+  if (importKind === "english") {
+    const repaired = repairMissingStudyDocumentNodeTypes(parsed);
+    if (repaired.repairs.length) {
+      parsed = repaired.document;
+      const input = dialog.querySelector("[data-study-document-dialog-input]");
+      if (input) input.value = JSON.stringify(parsed, null, 2);
+      showToast(`${repaired.repairs.length} missing node type${repaired.repairs.length === 1 ? "" : "s"} repaired automatically`);
+    }
   }
 
   const target = studyDocumentImportTarget(parsed);

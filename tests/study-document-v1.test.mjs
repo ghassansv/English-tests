@@ -9,6 +9,7 @@ import {
   assertStudyDocumentV1,
   validateStudyDocumentV1
 } from "../public/js/study-document-v1.js";
+import { repairMissingStudyDocumentNodeTypes } from "../public/js/study-document-import-repair.js";
 
 function validDocument() {
   return {
@@ -232,6 +233,27 @@ expectInvalid("non-string text", document => { document.content[0].children[0].v
 expectInvalid("non-string gap label", document => { document.content[0].children[1].children[1].label = 42; }, "invalid-type");
 expectInvalid("missing required node field", document => { delete document.content[0].children[4].assetId; }, "missing-field");
 expectInvalid("non-array node children", document => { document.content[0].children = {}; }, "invalid-type");
+
+{
+  const document = validDocument();
+  delete document.content[0].children[0].type;
+  delete document.content[0].children[1].children[1].type;
+  const repaired = repairMissingStudyDocumentNodeTypes(document);
+  assert.deepEqual(repaired.repairs, [
+    { path: "$.content[0].children[0].type", value: "text" },
+    { path: "$.content[0].children[1].children[1].type", value: "gap" }
+  ]);
+  expectValid(repaired.document, "unambiguously missing node types are repaired before strict validation");
+  assert.equal(Object.hasOwn(document.content[0].children[0], "type"), false, "repair must not mutate pasted input");
+}
+
+{
+  const document = validDocument();
+  document.content.push({ id: "ambiguous-node", role: "decorative" });
+  const repaired = repairMissingStudyDocumentNodeTypes(document);
+  assert.equal(Object.hasOwn(repaired.document.content.at(-1), "type"), false, "ambiguous nodes must not be guessed");
+  assert.equal(validateStudyDocumentV1(repaired.document).valid, false);
+}
 
 {
   const document = validDocument();
