@@ -42,6 +42,7 @@ import {
   TEST_KNOWN_TOKEN_IGNORE_STORAGE_KEY,
   TEST_PAGE_GROUPING_TOOL_COLLAPSE_STORAGE_KEY,
   TEST_PAGE_GROUPING_TOOL_HIDDEN_STORAGE_KEY,
+  TEST_PAGE_LIST_COLLAPSE_STORAGE_KEY,
   TEST_PAGE_LIST_WIDTH_STORAGE_KEY,
   TEST_PAGE_PDF_COLLAPSE_STORAGE_KEY,
   TEST_PAGE_PDF_ZOOM_MAX,
@@ -57,7 +58,7 @@ import {
   TEST_PAGE_WORD_PRACTICE_HIDDEN_STORAGE_KEY,
   UNGROUPED_NATIONAL_TEST_TOPIC,
   WORD_RENDER_BATCH_SIZE
-} from "./js/app-config.js?v=grouping-panel-hide-1";
+} from "./js/app-config.js?v=study-workspace-compact-v1";
 import {
   normalizedPageSearchText,
   normalizedSearchText,
@@ -247,6 +248,7 @@ const state = {
   testPageGroupingToolHidden: false,
   testPagePdfCollapsed: false,
   testPageWordPracticeHidden: false,
+  testPageListCollapsed: true,
   testPageListWidth: 0.42,
   testPagePracticeWidth: 0.5,
   testPagePdfZoom: 1,
@@ -2938,6 +2940,7 @@ function renderNationalTestStudyWorkspace() {
   const groupedPages = groupedVisibleNationalTestPages(test);
   const pageGroupCollapseKeys = nationalTestPageGroupCollapseKeysForGroups(test, groupedPages);
   const allPageGroupsCollapsed = areNationalTestPageGroupsCollapsed(pageGroupCollapseKeys);
+  const pageListCollapsed = Boolean(state.testPageListCollapsed);
   const details = [test.course, test.term, test.year].filter(Boolean).join(" | ");
   const pageCountLabel = state.activeNationalTestSectionFilter === "all"
     ? `${allPages.length} ${allPages.length === 1 ? "page" : "pages"}`
@@ -3016,40 +3019,54 @@ function renderNationalTestStudyWorkspace() {
 
       <div class="lookup-results test-study-lookup-results test-lookup-results-target hidden"></div>
 
-      <div class="test-page-stage" ${testPageStageWidthStyleAttribute()}>
-        <div class="test-page-list-panel">
-          ${testPageSectionFilterHtml()}
-          ${testPageGroupingToolControlsHtml(test)}
-          ${state.testPageGroupingToolHidden ? "" : testPageGroupingToolHtml(test)}
-          <div class="test-page-list-toolbar test-page-list-toolbar--groups">
-            <div>
-              <strong>Pages</strong>
-              <span>${state.activeNationalTestSectionFilter === "all" ? "Skill groups and topics" : `Showing ${nationalTestSectionLabel(state.activeNationalTestSectionFilter)}`}</span>
+      <div class="test-page-stage ${pageListCollapsed ? "test-page-stage--list-collapsed" : ""}" ${testPageStageWidthStyleAttribute()}>
+        <aside class="test-page-list-panel ${pageListCollapsed ? "is-collapsed" : ""}" aria-label="Page navigation">
+          <button
+            class="ghost-button test-page-list-toggle"
+            type="button"
+            data-toggle-test-page-list
+            aria-expanded="${pageListCollapsed ? "false" : "true"}"
+            title="${pageListCollapsed ? "Show page navigation" : "Hide page navigation"}"
+          >
+            ${icon(pageListCollapsed ? "chevron-right" : "chevron-left")}
+            <span>${pageListCollapsed ? "Pages" : "Hide pages"}</span>
+          </button>
+          ${pageListCollapsed ? "" : `
+            ${testPageSectionFilterHtml()}
+            ${testPageGroupingToolControlsHtml(test)}
+            ${state.testPageGroupingToolHidden ? "" : testPageGroupingToolHtml(test)}
+            <div class="test-page-list-toolbar test-page-list-toolbar--groups">
+              <div>
+                <strong>Pages</strong>
+                <span>${state.activeNationalTestSectionFilter === "all" ? "Skill groups and topics" : `Showing ${nationalTestSectionLabel(state.activeNationalTestSectionFilter)}`}</span>
+              </div>
+              ${pageGroupCollapseKeys.length ? `
+                <button
+                  class="ghost-button test-page-collapse-all-button"
+                  type="button"
+                  data-collapse-all-test-page-groups="${allPageGroupsCollapsed ? "false" : "true"}"
+                  title="${escapeHtml(allPageGroupsCollapsed ? "Expand all page groups" : "Collapse all page groups")}"
+                  aria-label="${escapeHtml(allPageGroupsCollapsed ? "Expand all page groups" : "Collapse all page groups")}"
+                >
+                  ${icon(allPageGroupsCollapsed ? "chevrons-down" : "chevrons-up")}
+                  <span>${allPageGroupsCollapsed ? "Expand all" : "Collapse all"}</span>
+                </button>
+              ` : ""}
             </div>
-            ${pageGroupCollapseKeys.length ? `
-              <button
-                class="ghost-button test-page-collapse-all-button"
-                type="button"
-                data-collapse-all-test-page-groups="${allPageGroupsCollapsed ? "false" : "true"}"
-                title="${escapeHtml(allPageGroupsCollapsed ? "Expand all page groups" : "Collapse all page groups")}"
-                aria-label="${escapeHtml(allPageGroupsCollapsed ? "Expand all page groups" : "Collapse all page groups")}"
-              >
-                ${icon(allPageGroupsCollapsed ? "chevrons-down" : "chevrons-up")}
-                <span>${allPageGroupsCollapsed ? "Expand all" : "Collapse all"}</span>
-              </button>
-            ` : ""}
-          </div>
-          <nav class="test-page-list" aria-label="Test pages">
-            ${groupedPages.length ? groupedPages.map(group => nationalTestPageSectionGroupHtml(test, group)).join("") : `<div class="empty-state">${escapeHtml(emptySectionMessage)}</div>`}
-          </nav>
-        </div>
-        <button
-          class="test-page-list-resizer"
-          type="button"
-          aria-label="Resize page list panel"
-          title="Drag to resize page list"
-          data-resize-test-page-list
-        ></button>
+            <nav class="test-page-list" aria-label="Test pages">
+              ${groupedPages.length ? groupedPages.map(group => nationalTestPageSectionGroupHtml(test, group)).join("") : `<div class="empty-state">${escapeHtml(emptySectionMessage)}</div>`}
+            </nav>
+          `}
+        </aside>
+        ${pageListCollapsed ? "" : `
+          <button
+            class="test-page-list-resizer"
+            type="button"
+            aria-label="Resize page list panel"
+            title="Drag to resize page list"
+            data-resize-test-page-list
+          ></button>
+        `}
         <div class="test-page-editor" id="test-page-editor">
           ${transcriptViewer
             ? nationalTestListeningTranscriptViewerHtml(test, transcriptViewer)
@@ -6172,6 +6189,12 @@ function testPageListWidthPercent() {
 
 function testPageStageWidthStyleAttribute() {
   return `style="--test-page-list-width:${testPageListWidthPercent()}"`;
+}
+
+function setTestPageListCollapsed(collapsed) {
+  state.testPageListCollapsed = Boolean(collapsed);
+  localStorage.setItem(TEST_PAGE_LIST_COLLAPSE_STORAGE_KEY, state.testPageListCollapsed ? "true" : "false");
+  rerenderNationalTestsPreservingViewport({ preserveStudyColumn: true });
 }
 
 function setTestPageListWidth(value) {
@@ -15428,6 +15451,7 @@ function bindEvents() {
     const openStudyDocumentArabicJsonButton = event.target.closest("[data-open-study-document-arabic-json]");
     const loadStudyDocumentJsonButton = event.target.closest("[data-load-study-document-json]");
     const editStudyDocumentGraphicButton = event.target.closest("[data-edit-study-document-graphic]");
+    const pageListToggleButton = event.target.closest("[data-toggle-test-page-list]");
     const groupingToolToggleButton = event.target.closest("[data-toggle-test-page-grouping-tool]");
     const testLookupSubmitButton = event.target.closest("[data-test-lookup-submit]");
     const testLookupSaveButton = event.target.closest("[data-test-lookup-save]");
@@ -15544,6 +15568,10 @@ function bindEvents() {
       await ensureListeningMediaFilesLoaded();
       state.activeNationalTestListeningTopicKey = state.activeNationalTestListeningTopicKey === topicKey ? "" : topicKey;
       rerenderNationalTestsPreservingViewport({ preserveStudyColumn: true });
+      return;
+    }
+    if (pageListToggleButton) {
+      setTestPageListCollapsed(!state.testPageListCollapsed);
       return;
     }
     if (groupingToolToggleButton) {
@@ -16224,6 +16252,7 @@ state.testPageGroupingToolCollapsed = localStorage.getItem(TEST_PAGE_GROUPING_TO
 state.testPageGroupingToolHidden = localStorage.getItem(TEST_PAGE_GROUPING_TOOL_HIDDEN_STORAGE_KEY) === "true";
 state.testPagePdfCollapsed = localStorage.getItem(TEST_PAGE_PDF_COLLAPSE_STORAGE_KEY) === "true";
 state.testPageWordPracticeHidden = localStorage.getItem(TEST_PAGE_WORD_PRACTICE_HIDDEN_STORAGE_KEY) === "true";
+state.testPageListCollapsed = localStorage.getItem(TEST_PAGE_LIST_COLLAPSE_STORAGE_KEY) !== "false";
 state.testPageListWidth = normalizedTestPageListWidth(localStorage.getItem(TEST_PAGE_LIST_WIDTH_STORAGE_KEY));
 state.testPagePracticeWidth = normalizedTestPagePracticeWidth(localStorage.getItem(TEST_PAGE_PRACTICE_WIDTH_STORAGE_KEY));
 state.testPagePdfZoom = normalizedTestPagePdfZoom(localStorage.getItem(TEST_PAGE_PDF_ZOOM_STORAGE_KEY));

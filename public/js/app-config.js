@@ -10,6 +10,7 @@ export const TEST_PAGE_PDF_COLLAPSE_STORAGE_KEY = "testPagePdfCollapsed";
 export const TEST_PAGE_WORD_PRACTICE_HIDDEN_STORAGE_KEY = "testPageWordPracticeHidden";
 export const TEST_PAGE_PDF_ZOOM_STORAGE_KEY = "testPagePdfZoom";
 export const TEST_PAGE_LIST_WIDTH_STORAGE_KEY = "testPageListWidth";
+export const TEST_PAGE_LIST_COLLAPSE_STORAGE_KEY = "testPageListCollapsed";
 export const TEST_PAGE_PRACTICE_WIDTH_STORAGE_KEY = "testPagePracticeWidth";
 export const TEST_PAGE_VISUAL_ZOOM_STORAGE_KEY = "testPageVisualZoom";
 export const TEST_PAGE_TRANSLATION_LANGUAGE_STORAGE_KEY = "testPageTranslationLanguage";

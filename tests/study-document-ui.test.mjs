@@ -53,6 +53,12 @@ assert.match(appSource, /validateStudyDocumentPageBinding\(parsed, targetPage\)/
 assert.match(appSource, /openImportedStudyDocumentPage\(saved\)/);
 assert.match(appSource, /already has an English study document\. Replace it with this JSON\?/);
 assert.doesNotMatch(appSource, /submitStudyDocumentDialogLegacy/);
+assert.match(appSource, /TEST_PAGE_LIST_COLLAPSE_STORAGE_KEY/);
+assert.match(appSource, /testPageListCollapsed: true/);
+assert.match(appSource, /localStorage\.getItem\(TEST_PAGE_LIST_COLLAPSE_STORAGE_KEY\) !== "false"/);
+assert.match(appSource, /data-toggle-test-page-list/);
+assert.match(appSource, /function setTestPageListCollapsed\(collapsed\)/);
+assert.match(appSource, /test-page-stage--list-collapsed/);
 assert.match(appSource, /editGraphics: true/);
 assert.match(appSource, /function openStudyDocumentGraphicDialog\(nodeId\)/);
 assert.match(appSource, /function initializeStudyDocumentGraphicCrop\(/);
@@ -100,6 +106,9 @@ assert.match(styles, /padding-inline-start: 24px/);
 assert.match(styles, /\.study-document-graphic--editable/);
 assert.match(styles, /\.study-document-graphic-crop-stage/);
 assert.match(styles, /\.study-document-graphic-crop-selection/);
+assert.match(styles, /\.test-page-stage\.test-page-stage--list-collapsed/);
+assert.match(styles, /\.test-page-list-panel\.is-collapsed/);
+assert.match(styles, /Focused study workspace: collapsible navigation and compact page tools/);
 assert.doesNotMatch(styles, /\.page-builder-/);
 
 console.log("study-document/v1 UI integration tests passed");
