@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import {
   officialStudyDocumentAnswers,
+  studyDocumentGaps,
   studyDocumentQuestions,
   validateOfficialStudyDocumentAnswerMapping
 } from "../public/js/study-document-official-answers.js";
@@ -95,6 +96,44 @@ const incompleteMapping = validateOfficialStudyDocumentAnswerMapping(missingQues
 assert.equal(incompleteMapping.valid, false);
 assert.equal(incompleteMapping.officialCount, 2);
 assert.equal(incompleteMapping.mappedCount, 1);
-assert.match(incompleteMapping.errors[0].message, /group\(role=question\)/);
+assert.match(incompleteMapping.errors[0].message, /gap nodes/);
+
+const numberedGapDocument = {
+  schemaVersion: "study-document/v1",
+  documentId: "test_page_numbered_gaps",
+  pageNumber: 9,
+  source: { kind: "page-image", sourcePageIndex: 8 },
+  content: [{
+    type: "flow",
+    id: "article-flow",
+    children: [
+      { type: "text", id: "article-a", role: "body", value: "Before " },
+      { type: "gap", id: "gap-8", display: "inline", style: "line", size: "medium", label: "8" },
+      { type: "text", id: "article-b", role: "body", value: " and after " },
+      { type: "gap", id: "gap-9", display: "inline", style: "line", size: "medium", label: "9" }
+    ]
+  }]
+};
+const numberedGapQuestions = [
+  { number: "8", answer: { value: "first" } },
+  { number: "9", answer: { value: "second" } }
+];
+
+assert.deepEqual(studyDocumentGaps(numberedGapDocument), [
+  { id: "gap-8", number: "8" },
+  { id: "gap-9", number: "9" }
+]);
+const gapAnswers = officialStudyDocumentAnswers(numberedGapDocument, numberedGapQuestions);
+assert.deepEqual(gapAnswers, [
+  { questionId: "gap-8", questionNumber: "8", kind: "gap", gapId: "gap-8", value: "first", origin: "official" },
+  { questionId: "gap-9", questionNumber: "9", kind: "gap", gapId: "gap-9", value: "second", origin: "official" }
+]);
+assert.equal(validateOfficialStudyDocumentAnswerMapping(numberedGapDocument, numberedGapQuestions).valid, true);
+const hiddenGapHtml = renderStudyDocumentV1ToHtml(numberedGapDocument, { answers: gapAnswers, showAnswers: false });
+assert.doesNotMatch(hiddenGapHtml, /study-document-gap-answer/);
+assert.doesNotMatch(hiddenGapHtml, />first</);
+const shownGapHtml = renderStudyDocumentV1ToHtml(numberedGapDocument, { answers: gapAnswers, showAnswers: true });
+assert.match(shownGapHtml, /data-study-node-id="gap-8"[^>]*>.*study-document-gap-answer">first</s);
+assert.match(shownGapHtml, /data-study-node-id="gap-9"[^>]*>.*study-document-gap-answer">second</s);
 
 console.log("study-document official-answer mapping tests passed");

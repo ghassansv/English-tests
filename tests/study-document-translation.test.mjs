@@ -25,11 +25,13 @@ const document = {
         { type: "gap", id: "gap-1", display: "block", style: "line", lines: 1 }
       ]
     },
-    { type: "text", id: "footer-1", role: "footer", value: "National test" }
+    { type: "text", id: "footer-1", role: "footer", value: "National test" },
+    { type: "gap", id: "gap-2", display: "block", style: "line", lines: 1, label: "2" }
   ]
 };
 const officialAnswers = [
-  { questionId: "question-1", questionNumber: "1", kind: "text", value: "The official answer.", origin: "official" }
+  { questionId: "question-1", questionNumber: "1", kind: "text", value: "The official answer.", origin: "official" },
+  { questionId: "gap-2", questionNumber: "2", kind: "gap", gapId: "gap-2", value: "The gap answer.", origin: "official" }
 ];
 const translation = {
   schemaVersion: "study-document-translation/v1",
@@ -42,7 +44,8 @@ const translation = {
     "footer-1": "الاختبار الوطني"
   },
   answers: {
-    "1": "الإجابة الرسمية."
+    "1": "الإجابة الرسمية.",
+    "2": "الإجابة الثانية."
   }
 };
 
@@ -72,6 +75,7 @@ assert.equal(document.content[0].children[1].value, "What happened?", "translati
 
 const translatedAnswers = applyOfficialAnswerTranslation(officialAnswers, translation);
 assert.equal(translatedAnswers[0].value, "الإجابة الرسمية.");
+assert.equal(translatedAnswers[1].value, "الإجابة الثانية.");
 assert.equal(officialAnswers[0].value, "The official answer.");
 
 const prompt = studyDocumentArabicPrompt(document, officialAnswers);
@@ -90,5 +94,7 @@ assert.match(html, /data-layout-language="ar"/);
 assert.match(html, /dir="rtl"/);
 assert.match(html, /ماذا حدث؟/);
 assert.match(html, /الإجابة الرسمية\./);
+assert.match(html, /study-document-gap-answer/);
+assert.match(html, /الإجابة الثانية\./);
 
 console.log("study-document/v1 Arabic translation tests passed");

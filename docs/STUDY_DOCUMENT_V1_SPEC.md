@@ -232,6 +232,11 @@ Allowed `lines` for block gaps only: - `1` - `2` - `3` - `4` - `5` - `6`
 A visible blank inside a sentence MUST be represented by a `gap` at the
 exact semantic position in a `flow`.
 
+When a gap is itself a visibly numbered answer item, its `label` MUST equal
+that visible question number exactly (for example `"14"`). Numbered gaps do
+not need artificial `group(role: "question")` wrappers: official answers map
+directly to the gap by `label`.
+
 ------------------------------------------------------------------------
 
 ## 10. list

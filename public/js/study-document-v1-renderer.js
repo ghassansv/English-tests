@@ -48,7 +48,7 @@ function renderNode(node, options, context = {}) {
     case "group": return renderGroup(node, options, context);
     case "text": return renderText(node, options, context);
     case "flow": return renderFlow(node, options);
-    case "gap": return renderGap(node);
+    case "gap": return renderGap(node, options);
     case "list": return renderList(node, options, context);
     case "graphic": return renderGraphic(node, options, context);
     case "table": return renderTable(node, options, context);
@@ -87,13 +87,18 @@ function renderFlow(node, options) {
   return `<div class="study-document-flow" data-study-node-id="${escapeAttribute(node.id)}">${node.children.map(child => renderNode(child, options, { inline: true })).join("")}</div>`;
 }
 
-function renderGap(node) {
+function renderGap(node, options) {
   const label = node.label ? `<span class="study-document-gap-label">${escapeText(node.label)}</span>` : "";
+  const answer = options.showAnswers ? options.answerByQuestionId.get(node.id) : null;
+  const answerText = answer?.kind === "gap" ? escapeText(answer.value) : "";
   if (node.display === "inline") {
-    return `<span class="study-document-gap study-document-gap--inline study-document-gap--${escapeAttribute(node.style)} study-document-gap-size--${escapeAttribute(node.size || "medium")}" data-study-node-id="${escapeAttribute(node.id)}">${label}</span>`;
+    const value = answerText ? `<span class="study-document-gap-answer">${answerText}</span>` : "";
+    return `<span class="study-document-gap study-document-gap--inline study-document-gap--${escapeAttribute(node.style)} study-document-gap-size--${escapeAttribute(node.size || "medium")}${answerText ? " study-document-gap--answered" : ""}" data-study-node-id="${escapeAttribute(node.id)}">${label}${value}</span>`;
   }
-  const lines = Array.from({ length: node.lines || 1 }, () => "<span></span>").join("");
-  return `<div class="study-document-gap study-document-gap--block study-document-gap--${escapeAttribute(node.style)}" data-study-node-id="${escapeAttribute(node.id)}">${label}${lines}</div>`;
+  const lines = Array.from({ length: node.lines || 1 }, (_, index) => (
+    index === 0 && answerText ? `<span class="study-document-gap-answer">${answerText}</span>` : "<span></span>"
+  )).join("");
+  return `<div class="study-document-gap study-document-gap--block study-document-gap--${escapeAttribute(node.style)}${answerText ? " study-document-gap--answered" : ""}" data-study-node-id="${escapeAttribute(node.id)}">${label}${lines}</div>`;
 }
 
 function renderList(node, options, context = {}) {

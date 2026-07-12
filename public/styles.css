@@ -10353,3 +10353,19 @@ label > span,
     width: 100%;
   }
 }
+
+.study-document-gap-answer {
+  color: #08715a;
+  font-weight: 800;
+}
+
+.study-document-gap--inline .study-document-gap-answer {
+  display: inline-block;
+  padding-inline: 4px;
+  text-align: center;
+}
+
+.study-document-gap--answered {
+  border-color: #15936f;
+  background: rgba(45, 212, 191, 0.08);
+}

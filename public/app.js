@@ -75,21 +75,21 @@ import {
 } from "./js/known-word-config.js";
 import { renderPageLayoutToHtml } from "./page-layout.js?v=a4-layout-1";
 import { validateStudyDocumentV1 } from "./js/study-document-v1.js?v=canonical-study-document-v1-1";
-import { renderStudyDocumentV1ToHtml } from "./js/study-document-v1-renderer.js?v=canonical-study-document-renderer-v1-4";
+import { renderStudyDocumentV1ToHtml } from "./js/study-document-v1-renderer.js?v=canonical-study-document-renderer-v1-5";
 import {
   studyDocumentPagePrompt,
   validateStudyDocumentPageBinding
-} from "./js/study-document-page-binding.js?v=canonical-study-document-binding-v1-1";
+} from "./js/study-document-page-binding.js?v=canonical-study-document-binding-v1-2";
 import {
   officialStudyDocumentAnswers,
   validateOfficialStudyDocumentAnswerMapping
-} from "./js/study-document-official-answers.js?v=canonical-study-document-answers-v1-1";
+} from "./js/study-document-official-answers.js?v=canonical-study-document-answers-v1-2";
 import {
   applyOfficialAnswerTranslation,
   applyStudyDocumentTranslation,
   studyDocumentArabicPrompt,
   validateStudyDocumentTranslationV1
-} from "./js/study-document-translation-v1.js?v=canonical-study-document-translation-v1-1";
+} from "./js/study-document-translation-v1.js?v=canonical-study-document-translation-v1-2";
 
 let videoEffectsModulePromise = null;
 

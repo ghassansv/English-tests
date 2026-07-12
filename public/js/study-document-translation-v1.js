@@ -34,7 +34,7 @@ export function validateStudyDocumentTranslationV1(translation, studyDocument = 
     validateExactKeys(translation.items, studyDocumentTranslationSourceItems(studyDocument), "$.items", "text node", issue);
     const expectedAnswers = Object.fromEntries(
       (Array.isArray(officialAnswers) ? officialAnswers : [])
-        .filter(answer => answer.kind === "text")
+        .filter(answer => answer.kind !== "choice")
         .map(answer => [String(answer.questionNumber), answer.value])
     );
     validateExactKeys(translation.answers, expectedAnswers, "$.answers", "open official answer", issue);
@@ -70,7 +70,7 @@ export function applyStudyDocumentTranslation(studyDocument, translation) {
 export function applyOfficialAnswerTranslation(officialAnswers, translation) {
   const answers = isObject(translation?.answers) ? translation.answers : {};
   return (Array.isArray(officialAnswers) ? officialAnswers : []).map(answer => (
-    answer.kind === "text" && has(answers, String(answer.questionNumber))
+    answer.kind !== "choice" && has(answers, String(answer.questionNumber))
       ? { ...answer, value: String(answers[String(answer.questionNumber)]) }
       : answer
   ));
@@ -80,7 +80,7 @@ export function studyDocumentArabicPrompt(studyDocument, officialAnswers = []) {
   const sourceItems = studyDocumentTranslationSourceItems(studyDocument);
   const sourceAnswers = Object.fromEntries(
     (Array.isArray(officialAnswers) ? officialAnswers : [])
-      .filter(answer => answer.kind === "text")
+      .filter(answer => answer.kind !== "choice")
       .map(answer => [String(answer.questionNumber), answer.value])
   );
   const output = {

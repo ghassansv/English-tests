@@ -1,5 +1,5 @@
 export function officialStudyDocumentAnswers(studyDocument, officialQuestions = []) {
-  const questions = studyDocumentQuestions(studyDocument);
+  const questions = studyDocumentAnswerTargets(studyDocument);
   const officialByNumber = new Map();
   availableOfficialStudyQuestions(officialQuestions).forEach(question => {
     const number = normalizedQuestionNumber(question?.number || question?.questionNumber || question?.label);
@@ -10,6 +10,16 @@ export function officialStudyDocumentAnswers(studyDocument, officialQuestions = 
     const official = officialByNumber.get(normalizedQuestionNumber(question.number));
     if (!official) return [];
     const value = String(official.answer?.value || "").trim();
+    if (question.kind === "gap") {
+      return [{
+        questionId: question.id,
+        questionNumber: question.number,
+        kind: "gap",
+        gapId: question.id,
+        value,
+        origin: "official"
+      }];
+    }
     const choiceIndex = officialChoiceIndex(official, value);
     if (question.choiceItemIds.length && choiceIndex >= 0 && choiceIndex < question.choiceItemIds.length) {
       return [{
@@ -44,9 +54,21 @@ export function validateOfficialStudyDocumentAnswerMapping(studyDocument, offici
     errors: [{
       code: "unmapped-official-answers",
       path: "$.content",
-      message: `Only ${mapped.length} of ${available.length} saved official answers map to semantic questions. Represent every question as group(role=question) with text(role=number), and choices as list(role=choices).`
+      message: `Only ${mapped.length} of ${available.length} saved official answers map to semantic questions. Represent standalone questions as group(role=question) with text(role=number), and represent numbered answer blanks as gap nodes whose label is the visible question number.`
     }]
   };
+}
+
+export function studyDocumentAnswerTargets(studyDocument) {
+  const targets = studyDocumentQuestions(studyDocument).map(question => ({ ...question, kind: "question" }));
+  const usedNumbers = new Set(targets.map(question => normalizedQuestionNumber(question.number)));
+  studyDocumentGaps(studyDocument).forEach(gap => {
+    const number = normalizedQuestionNumber(gap.number);
+    if (!number || usedNumbers.has(number)) return;
+    usedNumbers.add(number);
+    targets.push({ ...gap, kind: "gap", choiceItemIds: [] });
+  });
+  return targets;
 }
 
 function availableOfficialStudyQuestions(officialQuestions) {
@@ -75,6 +97,25 @@ export function studyDocumentQuestions(studyDocument) {
   };
   visitNodes(studyDocument?.content);
   return questions.filter(question => question.id && question.number);
+}
+
+export function studyDocumentGaps(studyDocument) {
+  const gaps = [];
+  const visitNodes = nodes => {
+    (Array.isArray(nodes) ? nodes : []).forEach(node => {
+      if (!node || typeof node !== "object") return;
+      if (node.type === "gap" && normalizedQuestionNumber(node.label)) {
+        gaps.push({ id: node.id, number: String(node.label).trim() });
+      }
+      visitNodes(node.children);
+      (Array.isArray(node.items) ? node.items : []).forEach(item => visitNodes(item?.children));
+      (Array.isArray(node.rows) ? node.rows : []).forEach(row => (
+        (Array.isArray(row?.cells) ? row.cells : []).forEach(cell => visitNodes(cell?.children))
+      ));
+    });
+  };
+  visitNodes(studyDocument?.content);
+  return gaps.filter(gap => gap.id && gap.number);
 }
 
 function questionNumber(group) {
