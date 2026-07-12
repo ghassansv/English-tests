@@ -209,6 +209,27 @@ app.use("/vendor/tesseract-core", express.static(TESSERACT_CORE_DIR));
 app.use("/vendor/tessdata", express.static(TESSERACT_ENG_DATA_DIR));
 app.use("/pronunciations", express.static(PRONUNCIATION_DIR));
 
+app.post("/api/json/repair", (req, res, next) => {
+  try {
+    const text = typeof req.body?.text === "string" ? req.body.text : "";
+    if (!text.trim()) throw httpError(400, "JSON text is required");
+    if (text.length > 2_000_000) throw httpError(413, "JSON text is too large to repair");
+
+    const normalized = stripBom(text).trim();
+    const candidates = [normalized, ...repairedStoredJsonTextCandidates(normalized)];
+    for (const candidate of candidates) {
+      try {
+        const value = JSON.parse(candidate);
+        res.json({ value, text: JSON.stringify(value, null, 2) });
+        return;
+      } catch {}
+    }
+    throw httpError(400, "The JSON structure could not be repaired safely");
+  } catch (error) {
+    next(error);
+  }
+});
+
 app.get("/api/database", async (_req, res, next) => {
   try {
     const includeNationalTestPages = _req.query.includeNationalTestPages === "true";

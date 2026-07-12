@@ -3874,9 +3874,24 @@ async function submitStudyDocumentDialog() {
   let parsed;
   try {
     parsed = parseImportedPageJson(raw);
-  } catch (error) {
-    renderStudyDocumentDialogValidation([{ path: "$", message: `Invalid JSON: ${error.message}` }]);
-    return;
+  } catch (parseError) {
+    try {
+      const repaired = await api("/api/json/repair", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: raw })
+      });
+      parsed = repaired.value;
+      const input = dialog.querySelector("[data-study-document-dialog-input]");
+      if (input && typeof repaired.text === "string") input.value = repaired.text;
+      showToast("JSON syntax repaired automatically");
+    } catch (repairError) {
+      renderStudyDocumentDialogValidation([{
+        path: "$",
+        message: `Invalid JSON: ${parseError.message}. Automatic repair failed: ${repairError.message}`
+      }]);
+      return;
+    }
   }
 
   const importKind = studyDocumentImportKind(parsed);
