@@ -38,14 +38,35 @@ final A4 composition.
     "kind": "page-image",
     "sourcePageIndex": 0
   },
+  "contentDensity": "balanced",
   "content": []
 }
 ```
 
 Allowed root fields only: - `schemaVersion` - `documentId` -
-`pageNumber` - `source` - `content`
+`pageNumber` - `source` - `contentDensity` - `content`
 
 `schemaVersion` MUST equal `study-document/v1`.
+
+`contentDensity` is optional. Allowed values: - `compact` - `balanced` -
+`spread`
+
+`contentDensity` describes how fully the visible semantic content occupies the
+usable A4 page height in the source. It is rendering intent, not source
+geometry:
+
+-   `compact`: the visible content intentionally occupies a relatively short
+    part of the usable page height.
+-   `balanced`: normal document spacing, or the source evidence does not
+    reliably justify another value. This is the default when the field is
+    omitted.
+-   `spread`: the visible content is distributed through most of the usable
+    page height, even when the page contains no graphic or reserved visual
+    region.
+
+The AI MUST infer this value independently for each attached page image. It
+MUST NOT use `spread` merely to fill an otherwise empty A4 page when the source
+itself is compact.
 
 ## 4. Forbidden fields
 
@@ -71,6 +92,8 @@ including:
 
 `graphic.aspectRatio` and semantic enum `graphic.size` are exceptions
 because they express rendering intent rather than source coordinates.
+Root enum `contentDensity` is also an exception because it expresses semantic
+page distribution without storing a measured position or dimension.
 
 ## 5. Allowed node types
 
@@ -400,6 +423,27 @@ Allowed `role`: - `section-separator` - `title-extension` -
 The AI MUST construct a semantic tree from visible evidence. It MUST NOT
 choose a page template.
 
+## Page content distribution
+
+Use root `contentDensity` to preserve the source page's broad vertical use of
+the A4 content area without copying coordinates or font measurements.
+
+-   Use `compact` only when the source visibly concentrates its complete
+    content in a short region and leaves intentional unused space.
+-   Use `balanced` for ordinary pages and whenever the evidence is uncertain.
+-   Use `spread` when the source distributes text, questions, gaps, or other
+    content through most of the usable page height. A graphic is not required.
+
+For `spread`, the renderer SHOULD distribute available vertical space through
+typography, line height, paragraph separation, group spacing, and answer-area
+spacing within readable limits. It MUST preserve reading order, paragraph
+boundaries, inline gap positions, and semantic ownership. It MUST NOT insert a
+fake graphic, empty semantic node, or arbitrary spacer to force page height.
+
+The enum is a broad density instruction only. Exact font sizes, line heights,
+margins, and coordinates remain renderer-owned and MUST NOT appear in the
+semantic JSON.
+
 ## Title or heading
 
 Use `text` with the appropriate role.
@@ -518,38 +562,42 @@ No `pageType` selection is required.
 5.  Every node, list item, row, and cell ID must be unique within the
     page JSON.
 6.  Never use source geometry or forbidden styling fields.
-7.  Preserve reading order.
-8.  Copy clearly readable English exactly.
-9.  Do not silently correct spelling, grammar, capitalization, or
+7.  Infer `contentDensity` from how the complete visible content uses the
+    source page height; use `balanced` when uncertain.
+8.  Do not infer density from text length alone and do not invent a graphic or
+    reserved region to occupy empty space.
+9.  Preserve reading order.
+10. Copy clearly readable English exactly.
+11. Do not silently correct spelling, grammar, capitalization, or
     punctuation.
-10. Do not answer questions.
-11. Do not fill answer gaps.
-12. Preserve visible inline answer blanks in their exact semantic
+12. Do not answer questions.
+13. Do not fill answer gaps.
+14. Preserve visible inline answer blanks in their exact semantic
     position.
-13. Use `list(role=choices)` for multiple-choice options.
-14. Preserve separate selection squares on lettered choices with
+15. Use `list(role=choices)` for multiple-choice options.
+16. Preserve separate selection squares on lettered choices with
     `selectionControl: "checkbox"`; one list item produces one square.
-15. Keep structurally separable question numbers separate from question
+17. Keep structurally separable question numbers separate from question
     text.
-16. Represent visual content with `graphic`.
-17. Preserve every visible paragraph as a separate semantic paragraph; do not
+18. Represent visual content with `graphic`.
+19. Preserve every visible paragraph as a separate semantic paragraph; do not
     merge paragraphs or split them because of visual line or column wrapping.
-18. Preserve column ownership for graphics, captions, credits, notes, and boxes.
-19. Use fixed columns with one block-layout child group per column when any
+20. Preserve column ownership for graphics, captions, credits, notes, and boxes.
+21. Use fixed columns with one block-layout child group per column when any
     content belongs to a specific column.
-20. Keep spanning graphics outside column groups in reading order.
-21. If an asset is unavailable, use a graphic placeholder.
-22. Do not use `table` for visual alignment.
-23. Use `table` only for true row-column relationships.
-24. Do not add visual styling fields.
-25. Return the semantic document tree, not a prose description.
-26. Do not invent unreadable text. If content cannot be read reliably,
+22. Keep spanning graphics outside column groups in reading order.
+23. If an asset is unavailable, use a graphic placeholder.
+24. Do not use `table` for visual alignment.
+25. Use `table` only for true row-column relationships.
+26. Do not add visual styling fields.
+27. Return the semantic document tree, not a prose description.
+28. Do not invent unreadable text. If content cannot be read reliably,
     preserve only supported readable content and structure.
-27. Do not reproduce scan defects, skew, perspective, blur, shadows, or
+29. Do not reproduce scan defects, skew, perspective, blur, shadows, or
     accidental page artifacts.
-28. Do not add content absent from the source page.
-29. Do not merge distinct questions or options.
-30. Do not split a single logical sentence merely because it wraps
+30. Do not add content absent from the source page.
+31. Do not merge distinct questions or options.
+32. Do not split a single logical sentence merely because it wraps
     visually.
 
 ------------------------------------------------------------------------
@@ -640,6 +688,7 @@ No `pageType` selection is required.
     "kind": "page-image",
     "sourcePageIndex": 0
   },
+  "contentDensity": "balanced",
   "content": [
     {
       "type": "list",
@@ -791,6 +840,7 @@ outside `article-fixed-columns` instead.
     "kind": "page-image",
     "sourcePageIndex": 0
   },
+  "contentDensity": "spread",
   "content": [
     {
       "type": "text",
@@ -853,6 +903,7 @@ The implementation validator MUST reject:
 
 -   wrong schema version
 -   unknown root fields
+-   invalid `contentDensity`
 -   unknown node types
 -   unknown node fields
 -   invalid enum values
