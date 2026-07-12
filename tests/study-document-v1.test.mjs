@@ -9,7 +9,10 @@ import {
   assertStudyDocumentV1,
   validateStudyDocumentV1
 } from "../public/js/study-document-v1.js";
-import { repairMissingStudyDocumentNodeTypes } from "../public/js/study-document-import-repair.js";
+import {
+  repairMissingStudyDocumentNodeTypes,
+  repairStudyDocumentImport
+} from "../public/js/study-document-import-repair.js";
 
 function validDocument() {
   return {
@@ -253,6 +256,48 @@ expectInvalid("non-array node children", document => { document.content[0].child
   const repaired = repairMissingStudyDocumentNodeTypes(document);
   assert.equal(Object.hasOwn(repaired.document.content.at(-1), "type"), false, "ambiguous nodes must not be guessed");
   assert.equal(validateStudyDocumentV1(repaired.document).valid, false);
+}
+
+{
+  const document = validDocument();
+  document.content = [{
+    type: "group",
+    id: "question-set",
+    role: "question-set",
+    layout: "block",
+    children: [{
+      type: "group",
+      id: "question-18",
+      role: "generic",
+      layout: "block",
+      children: [
+        { type: "text", id: "number-18", role: "number", value: "18" },
+        { type: "text", id: "prompt-18", role: "question", value: "Answer the question." },
+        { type: "gap", id: "answer-18", display: "block", style: "line", lines: 1 }
+      ]
+    }]
+  }];
+  const repaired = repairStudyDocumentImport(document);
+  assert.deepEqual(repaired.repairs, [{ path: "$.content[0].children[0].role", value: "question" }]);
+  assert.equal(repaired.document.content[0].children[0].role, "question");
+  expectValid(repaired.document, "generic numbered question groups receive their canonical role");
+}
+
+{
+  const document = validDocument();
+  document.content = [{
+    type: "group",
+    id: "numbered-article-fragment",
+    role: "generic",
+    layout: "block",
+    children: [
+      { type: "text", id: "article-number", role: "number", value: "18" },
+      { type: "text", id: "article-body", role: "body", value: "This is not a question." }
+    ]
+  }];
+  const repaired = repairStudyDocumentImport(document);
+  assert.deepEqual(repaired.repairs, []);
+  assert.equal(repaired.document.content[0].role, "generic", "numbered non-question groups must not be changed");
 }
 
 {

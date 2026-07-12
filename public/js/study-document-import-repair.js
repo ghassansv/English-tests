@@ -1,9 +1,13 @@
-export function repairMissingStudyDocumentNodeTypes(document) {
+export function repairStudyDocumentImport(document) {
   const repairedDocument = structuredClone(document);
   const repairs = [];
 
   visitNodes(repairedDocument?.content, "$.content", repairs);
   return { document: repairedDocument, repairs };
+}
+
+export function repairMissingStudyDocumentNodeTypes(document) {
+  return repairStudyDocumentImport(document);
 }
 
 function visitNodes(nodes, path, repairs) {
@@ -22,6 +26,11 @@ function visitNode(node, path, repairs) {
     }
   }
 
+  if (node.type === "group" && node.role === "generic" && isUnambiguousQuestionGroup(node)) {
+    node.role = "question";
+    repairs.push({ path: `${path}.role`, value: "question" });
+  }
+
   if (node.type === "group" || node.type === "flow") {
     visitNodes(node.children, `${path}.children`, repairs);
     return;
@@ -38,6 +47,26 @@ function visitNode(node, path, repairs) {
       });
     });
   }
+}
+
+function isUnambiguousQuestionGroup(group) {
+  let hasNumber = false;
+  let hasQuestionText = false;
+  let hasResponseStructure = false;
+
+  const visit = nodes => {
+    (Array.isArray(nodes) ? nodes : []).forEach(node => {
+      if (!node || typeof node !== "object" || Array.isArray(node)) return;
+      if (node.type === "text" && node.role === "number" && String(node.value || "").trim()) hasNumber = true;
+      if (node.type === "text" && node.role === "question" && String(node.value || "").trim()) hasQuestionText = true;
+      if (node.type === "list" && node.role === "choices") hasResponseStructure = true;
+      if (node.type === "gap" && node.display === "block") hasResponseStructure = true;
+      visit(node.children);
+    });
+  };
+
+  visit(group.children);
+  return hasNumber && (hasQuestionText || hasResponseStructure);
 }
 
 function inferUnambiguousNodeType(node) {

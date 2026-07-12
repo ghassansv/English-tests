@@ -6,6 +6,7 @@ import {
   validateOfficialStudyDocumentAnswerMapping
 } from "../public/js/study-document-official-answers.js";
 import { renderStudyDocumentV1ToHtml } from "../public/js/study-document-v1-renderer.js";
+import { repairStudyDocumentImport } from "../public/js/study-document-import-repair.js";
 
 const document = {
   schemaVersion: "study-document/v1",
@@ -135,5 +136,40 @@ assert.doesNotMatch(hiddenGapHtml, />first</);
 const shownGapHtml = renderStudyDocumentV1ToHtml(numberedGapDocument, { answers: gapAnswers, showAnswers: true });
 assert.match(shownGapHtml, /data-study-node-id="gap-8"[^>]*>.*study-document-gap-answer">first</s);
 assert.match(shownGapHtml, /data-study-node-id="gap-9"[^>]*>.*study-document-gap-answer">second</s);
+
+const genericQuestionSet = {
+  schemaVersion: "study-document/v1",
+  documentId: "test_page_generic_questions",
+  pageNumber: 18,
+  source: { kind: "page-image", sourcePageIndex: 17 },
+  content: [{
+    type: "group",
+    id: "question-set-13-18",
+    role: "question-set",
+    layout: "block",
+    children: Array.from({ length: 6 }, (_, index) => {
+      const number = String(index + 13);
+      return {
+        type: "group",
+        id: `question-${number}`,
+        role: "generic",
+        layout: "block",
+        children: [
+          { type: "text", id: `number-${number}`, role: "number", value: number },
+          { type: "text", id: `prompt-${number}`, role: "question", value: `Question ${number}` },
+          { type: "gap", id: `answer-${number}`, display: "block", style: "line", lines: 1 }
+        ]
+      };
+    })
+  }]
+};
+const officialQuestions13To18 = Array.from({ length: 6 }, (_, index) => ({
+  number: String(index + 13),
+  answer: { value: `Answer ${index + 13}` }
+}));
+const repairedGenericQuestionSet = repairStudyDocumentImport(genericQuestionSet).document;
+const repairedMapping = validateOfficialStudyDocumentAnswerMapping(repairedGenericQuestionSet, officialQuestions13To18);
+assert.equal(repairedMapping.valid, true);
+assert.equal(repairedMapping.mappedCount, 6);
 
 console.log("study-document official-answer mapping tests passed");
