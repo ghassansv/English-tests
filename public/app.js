@@ -3649,7 +3649,7 @@ function pageProcessingPanelHtml(test, page) {
                 ${icon("copy")}
                 <span>Copy Arabic Prompt</span>
               </button>
-              <button class="ghost-button" type="button" data-open-study-document-arabic-json="${escapeHtml(page.id)}" ${studyDocument ? "" : "disabled"}>
+              <button class="ghost-button" type="button" data-open-study-document-arabic-json="${escapeHtml(page.id)}">
                 ${icon("languages")}
                 <span>Paste Arabic JSON</span>
               </button>
@@ -3680,6 +3680,39 @@ function studyDocumentNodeCount(document) {
 
 function studyDocumentPageById(pageId) {
   return (state.db.nationalTestPages || []).find(page => page.id === pageId) || null;
+}
+
+function studyDocumentImportKind(document) {
+  if (document?.schemaVersion === "study-document/v1") return "english";
+  if (document?.schemaVersion === "study-document-translation/v1") return "arabic";
+  return "";
+}
+
+function studyDocumentImportTarget(document) {
+  const documentId = stringValueFromClient(document?.documentId);
+  if (!documentId) return { page: null, errors: [{ path: "$.documentId", message: "documentId must identify the destination page." }] };
+  const matches = (state.db.nationalTestPages || []).filter(page => (
+    page.id === documentId || page?.studyDocument?.documentId === documentId
+  ));
+  if (!matches.length) {
+    return { page: null, errors: [{ path: "$.documentId", message: `No app page matches documentId ${documentId}.` }] };
+  }
+  if (matches.length > 1) {
+    return { page: null, errors: [{ path: "$.documentId", message: `More than one app page matches documentId ${documentId}.` }] };
+  }
+  return { page: matches[0], errors: [] };
+}
+
+function studyDocumentImportPageLabel(page) {
+  const test = (state.db.nationalTests || []).find(item => item.id === page?.testId);
+  const pageNumber = page?.pagePart ? `${page.pageNumber}-${page.pagePart}` : String(page?.pageNumber || "?");
+  return `${test?.title ? `${test.title} · ` : ""}Page ${pageNumber}`;
+}
+
+function openImportedStudyDocumentPage(page) {
+  if (!page?.testId || !page?.id) return;
+  expandNationalTestPageGroupsForPage(page);
+  openNationalTestStudy(page.testId, { pageId: page.id });
 }
 
 async function copyStudyDocumentPrompt(pageId, kind) {
@@ -3739,10 +3772,6 @@ function openStudyDocumentDialog(pageId, kind = "english", initialText = "") {
     return;
   }
   const isArabic = kind === "arabic";
-  if (isArabic && !validateStudyDocumentV1(page.studyDocument).valid) {
-    showToast("Import a valid English study page first", true);
-    return;
-  }
   closeStudyDocumentDialog();
   const existing = isArabic
     ? page?.translations?.ar?.studyDocumentTranslation
@@ -3756,7 +3785,7 @@ function openStudyDocumentDialog(pageId, kind = "english", initialText = "") {
     <div class="study-document-dialog-header">
       <div>
         <strong>${isArabic ? "Import Arabic JSON" : existing ? "Edit Study JSON" : "Import Study JSON"}</strong>
-        <span>${isArabic ? "Only canonical study-document-translation/v1 JSON is accepted." : "Only canonical study-document/v1 JSON is accepted."}</span>
+        <span>Paste canonical study-document/v1 or study-document-translation/v1 JSON. It will be routed by documentId.</span>
       </div>
       <button class="icon-button" type="button" data-close-study-document-dialog aria-label="Close">${icon("x")}</button>
     </div>
@@ -3819,11 +3848,12 @@ function renderStudyDocumentDialogValidation(errors = [], message = "") {
   refreshIcons();
 }
 
-async function submitStudyDocumentDialog(kind) {
+async function submitStudyDocumentDialog() {
   const dialog = document.querySelector("[data-study-document-dialog]");
-  const page = studyDocumentPageById(dialog?.dataset.studyDocumentPageId);
+  const openedPage = studyDocumentPageById(dialog?.dataset.studyDocumentPageId);
   const raw = dialog?.querySelector("[data-study-document-dialog-input]")?.value || "";
-  if (!dialog || !page) return;
+  if (!dialog || !openedPage) return;
+
   let parsed;
   try {
     parsed = parseImportedPageJson(raw);
@@ -3832,24 +3862,44 @@ async function submitStudyDocumentDialog(kind) {
     return;
   }
 
-  if (kind === "arabic") {
-    const studyDocumentValidation = validateStudyDocumentV1(page.studyDocument);
+  const importKind = studyDocumentImportKind(parsed);
+  if (!importKind) {
+    renderStudyDocumentDialogValidation([{
+      path: "$.schemaVersion",
+      message: "schemaVersion must equal study-document/v1 or study-document-translation/v1."
+    }]);
+    return;
+  }
+
+  const target = studyDocumentImportTarget(parsed);
+  if (!target.page) {
+    renderStudyDocumentDialogValidation(target.errors);
+    return;
+  }
+  const targetPage = target.page;
+  const targetLabel = studyDocumentImportPageLabel(targetPage);
+
+  if (importKind === "arabic") {
+    const studyDocumentValidation = validateStudyDocumentV1(targetPage.studyDocument);
     if (!studyDocumentValidation.valid) {
-      renderStudyDocumentDialogValidation([{ path: "$", message: "Import a valid English study page first." }]);
+      renderStudyDocumentDialogValidation([{
+        path: "$.documentId",
+        message: `${targetLabel} does not have a valid English study document yet.`
+      }]);
       return;
     }
-    const semanticAnswers = officialStudyDocumentAnswers(page.studyDocument, page.questions);
-    const translationValidation = validateStudyDocumentTranslationV1(parsed, page.studyDocument, semanticAnswers);
+    const semanticAnswers = officialStudyDocumentAnswers(targetPage.studyDocument, targetPage.questions);
+    const translationValidation = validateStudyDocumentTranslationV1(parsed, targetPage.studyDocument, semanticAnswers);
     if (!translationValidation.valid) {
       renderStudyDocumentDialogValidation(translationValidation.errors);
       return;
     }
-    renderStudyDocumentDialogValidation([], "Arabic translation is valid. Saving...");
+    renderStudyDocumentDialogValidation([], `Arabic translation is valid for ${targetLabel}. Saving...`);
     try {
       const saved = await patchNationalTestPage({
-        ...page,
+        ...targetPage,
         translations: {
-          ...(page.translations || {}),
+          ...(targetPage.translations || {}),
           ar: { studyDocumentTranslation: parsed }
         }
       });
@@ -3857,9 +3907,8 @@ async function submitStudyDocumentDialog(kind) {
       state.testPageTranslationLanguage = "ar";
       localStorage.setItem(TEST_PAGE_TRANSLATION_LANGUAGE_STORAGE_KEY, "ar");
       closeStudyDocumentDialog();
-      renderNationalTests();
-      refreshIcons();
-      showToast("Arabic semantic page imported");
+      openImportedStudyDocumentPage(saved);
+      showToast(`Arabic JSON imported to ${targetLabel}`);
     } catch (error) {
       renderStudyDocumentDialogValidation([{ path: "$", message: error.message || "Server error" }]);
     }
@@ -3868,10 +3917,10 @@ async function submitStudyDocumentDialog(kind) {
 
   const documentValidation = validateStudyDocumentV1(parsed);
   const bindingValidation = documentValidation.valid
-    ? validateStudyDocumentPageBinding(parsed, page)
+    ? validateStudyDocumentPageBinding(parsed, targetPage)
     : { valid: false, errors: [] };
   const answerValidation = documentValidation.valid && bindingValidation.valid
-    ? validateOfficialStudyDocumentAnswerMapping(parsed, page.questions)
+    ? validateOfficialStudyDocumentAnswerMapping(parsed, targetPage.questions)
     : { valid: false, errors: [] };
   const errors = [
     ...documentValidation.errors,
@@ -3882,15 +3931,24 @@ async function submitStudyDocumentDialog(kind) {
     renderStudyDocumentDialogValidation(errors);
     return;
   }
-  const studyDocumentChanged = JSON.stringify(page.studyDocument || null) !== JSON.stringify(parsed);
-  renderStudyDocumentDialogValidation([], "Study document is valid. Saving...");
+
+  const studyDocumentChanged = JSON.stringify(targetPage.studyDocument || null) !== JSON.stringify(parsed);
+  if (studyDocumentChanged && targetPage.studyDocument) {
+    const confirmed = window.confirm(`${targetLabel} already has an English study document. Replace it with this JSON?`);
+    if (!confirmed) {
+      renderStudyDocumentDialogValidation([], "Import cancelled; no page was changed.");
+      return;
+    }
+  }
+
+  renderStudyDocumentDialogValidation([], `Study document is valid for ${targetLabel}. Saving...`);
   try {
     const saved = await patchNationalTestPage({
-      ...page,
+      ...targetPage,
       studyDocument: parsed,
       ...(studyDocumentChanged ? {
         translations: {
-          ...(page.translations || {}),
+          ...(targetPage.translations || {}),
           ar: null
         }
       } : {})
@@ -3899,11 +3957,10 @@ async function submitStudyDocumentDialog(kind) {
     state.testPageTranslationLanguage = "en";
     localStorage.setItem(TEST_PAGE_TRANSLATION_LANGUAGE_STORAGE_KEY, "en");
     closeStudyDocumentDialog();
-    renderNationalTests();
-    refreshIcons();
-    showToast(studyDocumentChanged && page?.translations?.ar
-      ? "Study page imported; previous Arabic translation removed"
-      : "Study page imported");
+    openImportedStudyDocumentPage(saved);
+    showToast(studyDocumentChanged && targetPage?.translations?.ar
+      ? `English JSON imported to ${targetLabel}; previous Arabic translation removed`
+      : `English JSON imported to ${targetLabel}`);
   } catch (error) {
     renderStudyDocumentDialogValidation([{ path: "$", message: error.message || "Server error" }]);
   }
