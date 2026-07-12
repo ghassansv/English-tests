@@ -10,6 +10,7 @@
     "documentId": { "type": "string", "minLength": 1 },
     "pageNumber": { "type": "integer", "minimum": 1 },
     "source": { "$ref": "#/$defs/source" },
+    "contentDensity": { "enum": ["compact", "balanced", "spread"] },
     "content": {
       "type": "array",
       "items": { "$ref": "#/$defs/node" }

@@ -74,12 +74,12 @@ import {
   KNOWN_WORD_PREFIX_MIN_BASE_LENGTH
 } from "./js/known-word-config.js";
 import { renderPageLayoutToHtml } from "./page-layout.js?v=a4-layout-1";
-import { validateStudyDocumentV1 } from "./js/study-document-v1.js?v=canonical-study-document-v1-1";
-import { renderStudyDocumentV1ToHtml } from "./js/study-document-v1-renderer.js?v=canonical-study-document-renderer-v1-5";
+import { validateStudyDocumentV1 } from "./js/study-document-v1.js?v=canonical-study-document-v1-2";
+import { renderStudyDocumentV1ToHtml } from "./js/study-document-v1-renderer.js?v=canonical-study-document-renderer-v1-6";
 import {
   studyDocumentPagePrompt,
   validateStudyDocumentPageBinding
-} from "./js/study-document-page-binding.js?v=canonical-study-document-binding-v1-2";
+} from "./js/study-document-page-binding.js?v=canonical-study-document-binding-v1-3";
 import {
   officialStudyDocumentAnswers,
   validateOfficialStudyDocumentAnswerMapping

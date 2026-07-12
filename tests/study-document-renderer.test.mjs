@@ -8,6 +8,7 @@ const document = {
   documentId: "renderer-test",
   pageNumber: 4,
   source: { kind: "page-image", sourcePageIndex: 3 },
+  contentDensity: "spread",
   content: [
     { type: "rule", id: "rule-1", role: "decorative" },
     {
@@ -56,6 +57,8 @@ const html = renderStudyDocumentV1ToHtml(document, {
 });
 
 assert.match(html, /study-document-rendered-page/);
+assert.match(html, /study-document-content-density--spread/);
+assert.match(html, /data-study-content-density="spread"/);
 assert.match(html, /data-study-document-id="renderer-test"/);
 assert.match(html, /data-test-page-marker-page-id="page-4"/);
 assert.match(html, /study-document-layout--columns/);
@@ -69,6 +72,12 @@ assert.match(html, /src="\/asset\.jpg"/);
 assert.match(html, /data-overlay="yes"/);
 assert.match(html, /Safe &lt;text&gt;/);
 assert.deepEqual(document, original, "renderer must not mutate the semantic document");
+
+const defaultDensityDocument = structuredClone(document);
+delete defaultDensityDocument.contentDensity;
+const defaultDensityHtml = renderStudyDocumentV1ToHtml(defaultDensityDocument);
+assert.match(defaultDensityHtml, /study-document-content-density--balanced/);
+assert.match(defaultDensityHtml, /data-study-content-density="balanced"/);
 
 const callbackHtml = renderStudyDocumentV1ToHtml(document, {
   renderText: value => `<mark>${value}</mark>`

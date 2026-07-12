@@ -15,6 +15,7 @@ export function renderStudyDocumentV1ToHtml(document, options = {}) {
     : "";
   const language = options.language === "ar" ? "ar" : "en";
   const direction = language === "ar" ? "rtl" : "ltr";
+  const contentDensity = document.contentDensity || "balanced";
   const renderOptions = {
     ...options,
     answerByQuestionId: new Map((Array.isArray(options.answers) ? options.answers : []).map(answer => [answer.questionId, answer]))
@@ -25,7 +26,7 @@ export function renderStudyDocumentV1ToHtml(document, options = {}) {
     <div class="page-layout-scroll study-document-scroll">
       <div class="page-layout-viewport">
         <article
-          class="page-layout-page study-document-rendered-page study-document-rendered-page--${language}"
+          class="page-layout-page study-document-rendered-page study-document-rendered-page--${language} study-document-content-density--${contentDensity}"
           data-test-page-marker-surface${markerPageId}
           data-layout-language="${language}"
           lang="${language}"
@@ -33,6 +34,7 @@ export function renderStudyDocumentV1ToHtml(document, options = {}) {
           data-layout-width="${PAGE_WIDTH}"
           data-layout-height="${PAGE_HEIGHT}"
           data-study-document-id="${escapeAttribute(document.documentId)}"
+          data-study-content-density="${escapeAttribute(contentDensity)}"
           style="width:${PAGE_WIDTH}px;height:${PAGE_HEIGHT}px;"
         >
           ${body}

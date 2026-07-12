@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import {
+  STUDY_DOCUMENT_V1_CONTENT_DENSITIES,
   STUDY_DOCUMENT_V1_FORBIDDEN_FIELDS,
   STUDY_DOCUMENT_V1_NODE_TYPES,
   STUDY_DOCUMENT_V1_SCHEMA_VERSION,
@@ -15,6 +16,7 @@ function validDocument() {
     documentId: "doc-complete",
     pageNumber: 1,
     source: { kind: "page-image", sourcePageIndex: 0 },
+    contentDensity: "spread",
     content: [
       {
         type: "group",
@@ -110,10 +112,12 @@ function expectInvalid(label, mutate, code, path) {
 }
 
 assert.equal(STUDY_DOCUMENT_V1_SCHEMA_VERSION, "study-document/v1");
+assert.deepEqual(STUDY_DOCUMENT_V1_CONTENT_DENSITIES, ["compact", "balanced", "spread"]);
 assert.deepEqual(STUDY_DOCUMENT_V1_NODE_TYPES, ["group", "text", "flow", "gap", "list", "graphic", "table", "rule"]);
 const jsonSchema = JSON.parse(await readFile(new URL("../public/StudyDocumentV1Schema.json", import.meta.url), "utf8"));
 assert.equal(jsonSchema.properties.schemaVersion.const, STUDY_DOCUMENT_V1_SCHEMA_VERSION);
 assert.equal(jsonSchema.additionalProperties, false);
+assert.deepEqual(jsonSchema.properties.contentDensity.enum, ["compact", "balanced", "spread"]);
 assert.equal(jsonSchema.$defs.list.properties.selectionControl.const, "checkbox");
 assert.match(JSON.stringify(jsonSchema.$defs.group), /"flowMode":\{"const":"fixed"\}/);
 assert.deepEqual(Object.keys(jsonSchema.$defs).filter(key => STUDY_DOCUMENT_V1_NODE_TYPES.includes(key)), STUDY_DOCUMENT_V1_NODE_TYPES);
@@ -137,6 +141,7 @@ expectInvalid("unknown root field", document => { document.pageType = "exam"; },
 expectInvalid("missing root field", document => { delete document.content; }, "missing-field", "$.content");
 expectInvalid("invalid document id", document => { document.documentId = ""; }, "invalid-type", "$.documentId");
 expectInvalid("invalid page number", document => { document.pageNumber = 0; }, "invalid-type", "$.pageNumber");
+expectInvalid("invalid content density", document => { document.contentDensity = "full"; }, "invalid-enum", "$.contentDensity");
 expectInvalid("unknown source field", document => { document.source.url = "/page.jpg"; }, "unknown-field", "$.source.url");
 expectInvalid("invalid source index", document => { document.source.sourcePageIndex = -1; }, "invalid-type", "$.source.sourcePageIndex");
 expectInvalid("non-array content", document => { document.content = {}; }, "invalid-type", "$.content");
@@ -241,6 +246,12 @@ expectInvalid("non-array node children", document => { document.content[0].child
   const document = validDocument();
   document.content = [];
   expectValid(document, "empty page content");
+}
+
+{
+  const document = validDocument();
+  delete document.contentDensity;
+  expectValid(document, "content density defaults when omitted");
 }
 
 {

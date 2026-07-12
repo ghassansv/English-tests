@@ -11,6 +11,12 @@ export const STUDY_DOCUMENT_V1_NODE_TYPES = Object.freeze([
   "rule"
 ]);
 
+export const STUDY_DOCUMENT_V1_CONTENT_DENSITIES = Object.freeze([
+  "compact",
+  "balanced",
+  "spread"
+]);
+
 export const STUDY_DOCUMENT_V1_FORBIDDEN_FIELDS = Object.freeze([
   "x",
   "y",
@@ -32,8 +38,9 @@ export const STUDY_DOCUMENT_V1_FORBIDDEN_FIELDS = Object.freeze([
 
 const NODE_TYPES = new Set(STUDY_DOCUMENT_V1_NODE_TYPES);
 const FORBIDDEN_FIELDS = new Set(STUDY_DOCUMENT_V1_FORBIDDEN_FIELDS);
-const ROOT_FIELDS = new Set(["schemaVersion", "documentId", "pageNumber", "source", "content"]);
+const ROOT_FIELDS = new Set(["schemaVersion", "documentId", "pageNumber", "source", "contentDensity", "content"]);
 const SOURCE_FIELDS = new Set(["kind", "sourcePageIndex"]);
+const CONTENT_DENSITIES = new Set(STUDY_DOCUMENT_V1_CONTENT_DENSITIES);
 
 const GROUP_ROLES = new Set([
   "page-header", "page-footer", "section", "article", "question", "question-set",
@@ -128,6 +135,9 @@ class StudyDocumentV1Validator {
     this.nonEmptyString(document.documentId, "$.documentId", "documentId");
     this.integer(document.pageNumber, "$.pageNumber", "pageNumber", 1);
     this.validateSource(document.source, "$.source");
+    if (has(document, "contentDensity")) {
+      this.enum(document.contentDensity, "$.contentDensity", CONTENT_DENSITIES, "contentDensity");
+    }
     this.nodes(document.content, "$.content");
   }
 

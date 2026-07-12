@@ -46,6 +46,7 @@ export function studyDocumentPagePrompt(page) {
     `- pageNumber: ${binding.pageNumber}`,
     `- source.kind: page-image`,
     `- source.sourcePageIndex: ${binding.sourcePageIndex}`,
+    "Set root contentDensity to compact, balanced, or spread from page use. Use spread when content covers most of the page, even without a graphic; balanced if unsure.",
     "The printed page number visible in the image is document content; preserve it as footer text when visible and do not use it to replace the root pageNumber.",
     "Follow the canonical field names exactly: group content uses children, and text content uses value.",
     "Use only group, text, flow, gap, list, graphic, table, and rule nodes. Preserve readable English exactly, do not answer questions, and do not fill gaps.",
@@ -53,6 +54,7 @@ export function studyDocumentPagePrompt(page) {
     "For One Word Gaps and other numbered blanks embedded in a passage, keep each blank as a gap in its exact flow position and set gap.label to the visible question number; do not create artificial question groups around passage fragments.",
     "When the image shows a separate square after every lettered choice, set selectionControl to checkbox on that choices list; do not omit the squares or replace the letter markers.",
     "Preserve visible paragraph boundaries. If a graphic, caption, credit, note, or box belongs to one column, use fixed columns with one block group per column and keep the owned content in that group; keep spanning graphics outside the column groups.",
+    "Do not add geometry, fake graphics, empty nodes, or reserved regions.",
     "Validate the result against the specification, then return JSON only."
   ].join("\n");
 }

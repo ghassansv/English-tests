@@ -5084,6 +5084,43 @@ fieldset[disabled] textarea {
   line-height: 1.38;
 }
 
+.study-document-content-density--compact {
+  gap: 10px;
+  font-size: 12.5px;
+  line-height: 1.32;
+}
+
+.study-document-content-density--spread {
+  gap: 20px;
+  font-size: 14px;
+  line-height: 1.52;
+  justify-content: space-between;
+}
+
+.study-document-content-density--spread > .study-document-group--article.study-document-layout--block,
+.study-document-content-density--spread > .study-document-group--section.study-document-layout--block,
+.study-document-content-density--spread > .study-document-group--question-set.study-document-layout--block,
+.study-document-content-density--spread > .study-document-group--generic.study-document-layout--block {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.study-document-content-density--spread > .study-document-list {
+  flex: 1 1 auto;
+  align-content: space-evenly;
+}
+
+.study-document-content-density--spread .study-document-layout--block {
+  gap: 14px;
+}
+
+.study-document-content-density--spread .study-document-list {
+  gap: 10px;
+}
+
 .study-document-rendered-page--ar {
   direction: rtl;
   text-align: right;
